@@ -1,0 +1,87 @@
+'''
+print(2*3)
+print(4*5)
+pi=3
+radius=11#radius:半徑
+area=pi*radius*radius
+print(area)
+radius=14
+hour=24#一天有24小時
+day=365#一年有365天
+total=hour*day#計算一年的總小時數
+print(total)
+'''
+"""
+我的第一個Python程式
+在螢幕上輸出Hello, World!
+"""
+'''
+print("Hello, World!")
+'''
+"""
+#可同時指定一個值給多個變數
+x=y=z=10
+print(x)
+print(y)
+print(z)
+"""
+'''
+#可同時指定多個值給多個變數(一對一)
+X,Y,Z=10,20,30
+print(X)
+print(Y)
+print(Z)
+print(X,Y)
+
+x,y=10,20
+print(x,y)
+print("=====")
+#交換兩個變數的值
+#變數1,變數2=變數2,變數1
+x,y=y,x
+print(x,y)
+'''
+'''
+X1=8/5
+Y1=10/3
+print(X1)
+print(Y1)
+print("=====")
+print(8/5)
+print(10/3)
+print(10%3)#餘數
+print(10//3)#整除
+print(2**0.5)
+print(2**3**2)
+print(4+3*7-1)
+print((4+3)*7-1)
+'''
+'''
+#指令del:刪除變數物件
+#系統收回變數所佔的記憶體空間
+#變數被刪除後，將無法再使用
+a,b=2,3
+a+=b
+print(a)
+del a
+print(a)
+'''
+'''
+A=B=C=10
+X2=A+B+C+12
+print(X2)
+#續行,"\"右邊不可再加上任何字元或註解
+#將一個敘述分成多行
+Y2=A+\
+    B+\
+    C+\
+    12
+print(Y2)
+#續行,使用小括號"()",右邊可再加上任何字元或註解
+#將一個敘述分成多行
+Y3=(A+ #註解
+    B+
+    C+
+    12)
+print(Y3)
+'''

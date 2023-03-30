@@ -1,0 +1,165 @@
+'''
+players = ["Curry","Jordan","James","Durant","Obama"]
+for i in players[:3]:
+    print(i)
+print("========")
+for i in players[-3:]:
+    print(i)
+'''
+'''
+#range(a,b):(a)~(b-1)
+n = 5
+number = list(range(n))
+print("串列 number =",number)
+for i in number:
+    print(i)
+print("========")
+for i in range(n):
+    print(i)
+'''
+'''
+start = 2
+end = 9
+step = 2
+number = list(range(start,end,step))
+print("串列 number =",number)
+for i in number:
+    print(i)
+print("========")
+for i in range(start,end,step):
+    print(i)
+'''
+'''
+size = int(input("size = "))
+array = list(range(size))
+print(array)
+for i in range(size):
+    array[i] = 0
+print(array)
+'''
+'''
+n = int(input("n = "))
+total = 0
+for i in range(1,n+1):
+    total += i
+print("sum from 1 to %d is %d" % (n,total))
+'''
+'''
+square = [num ** 2 for num in range(1,11)]
+print(square)
+'''
+'''
+flag = True
+while flag:
+    msg = input ("? ")
+    if(msg != "quit"):
+        print(msg)
+    else:
+        flag = False
+'''
+'''
+nums = [0,1,0,2,0]
+print("刪除前 = ", nums)
+target = int(input("欲刪除的資料 = "))
+while target in nums:
+    nums.remove(target)
+print("刪除後 = ", nums)
+'''
+'''
+print ("Case 1")
+for i in range(1,11):
+    if i == 5:
+        break
+    print(i,end =" ")
+print()
+print("Case 2")
+for i in range(0,11,2):
+    if i == 5:
+        break
+    print(i,end =" ")
+'''
+'''
+print ("Case 1")
+for i in range(1,11):
+    if i == 5:
+        break
+    print(i,end =" ")
+print()
+print("Case 2")
+for i in range(0,11,2):
+    if i == 5:
+        break
+    print(i,end =" ")
+'''
+'''
+print ("Case 1")
+for i in range(1,11):
+    if i == 5:
+        break
+print(i,end =" ")
+print()
+print("Case 2")
+for i in range(0,11,2):
+    if i == 5:
+        break
+print(i,end =" ")
+'''
+'''
+scores = [33,22,41,25,39,43,27,38,40]
+games = 0
+for i in scores:
+    if i < 30:
+        continue
+    games += 1
+print("有%d場得分大於或等於30分" % (games))
+'''
+'''
+num = int(input("輸入大於1的自然數 = "))
+if(num == 2):
+    print("%d是質數" % (num))
+else:
+    for i in range(2,int(num ** 0.5)+1):
+        if(num % i == 0):
+           print("%d不是質數" % (num))
+           break
+    else:
+        print("%d是質數" % (num))
+'''
+'''
+for i in range(1,10):
+    for j in range(1,10):
+        print("%d*%d = %-3d" % (i,j,i*j), end = " ")
+    print()
+'''
+'''
+buyers = [["James", 1030],
+          ["Curry", 893],
+          ["Durant", 2050],
+          ["Jordan", 990],
+          ["David", 2210]]
+
+goldbuyers = []
+vipbuyers = []
+
+while buyers:
+    i = buyers.pop(0)
+    if i[1] >= 1000:
+        vipbuyers.append(i)
+    else:
+        goldbuyers.append(i)
+
+print("VIP 買家資料", vipbuyers)
+print("GOLD 買家資料", goldbuyers)
+'''
+'''
+nums = [0,2,4,6,8]
+for i in nums:
+    pass
+'''
+'''
+seasons = ["spring", "summer", "autumn", "winter"]
+for i in enumerate(seasons):
+    print(i)
+for count,i in enumerate(seasons):
+    print(count,i)
+'''

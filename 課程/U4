@@ -1,0 +1,216 @@
+num1 = 222
+num2 = 333
+name="John"
+count=1
+score=96.5
+x=100
+formatstr = "%s 第 %d 次 Python 考試成績 %f"
+y=10.5
+formatstr2 ="{} 第 {} 次 Python 考試成績 {}"
+e=5/3
+str1 = f"5/3={e:5.4f}"
+'''
+print("012345678901234567890")
+#sep="":分隔字元(預設:空白字元)
+print(num1,num2,sep="這是空格")
+
+#end="\n":資料輸出時所插入的字元(預設:換行字元)
+print(num1,num2,sep="這是空格",end="\t")
+print("***")
+print(num1,num2,sep="這是空格",end="\n")
+print("***")
+print(num1,num2,sep="這是空格",end="")
+print("***")
+
+#輸出兩筆資料，用預設方式做隔閡與結束
+print("num1+num2=",num1+num2)
+'''
+'''
+#print("輸出格式區"%(變數區))
+# %d:整數
+# %f:浮點數(取6位小數)
+# %x:16進位小數
+# %X:16進位小數
+# %O:8進位整數
+# %s:字串
+print("%s 第 %d 次 Python 考試成績 %f" %(name,count,score))
+
+#格式輸出區也可以用一個字串取代
+formatstr = "%s 第 %d 次 Python 考試成績 %f"
+print(formatstr % (name,count,score))
+'''
+'''
+print("100的16進位 = %x\n100的8進位 =%o" % (x,x))
+print("(整數%d\n浮點%f\n字串%s" % (x,x,x))
+'''
+'''
+#精準控制格式化輸出:
+#保留n格空間作資料輸出(預設靠右)，負號-靠左，正號表示正值時須加上正號
+# %(+|-)nd:整數
+# %(+|-)m.nf:浮點數(取6位小數) #m:空格、n:小數位數
+# %(+|-)nx:16進位小數
+# %(+|-)nX:16進位小數
+# %(+|-)nO:8進位整數
+# %(+|-)ns:字串
+#變數區只有一筆資料時可省略小括弧
+print("x=/%6d/" % x)
+print("y=/%6.2f/" % y)
+
+#如果保留空間不足時將完整輸出資料
+print("x=/%2d/" % x)
+print("y=/%3.2f/" % y)
+print("x=/%-6d/" % x)
+print("y=/%-6.2f/" % y)
+print("{} 第 {} 次 Python 考試成績 {}".format(name,count,score))
+formatstr2 ="{} 第 {} 次 Python 考試成績 {}"
+print(formatstr2.format(name,count,score))
+'''
+
+#函數open():fstream=open(filename,mode=(可省略))
+#"r":讀取(預設)
+#"w":寫入,如果原先檔案有內容，舊資料將被覆蓋
+#"a":寫入,如果原先檔案有內容，新資料將被附加
+#"x":寫入,如果開啟的檔案存在，錯誤!
+#"t":開啟文字檔模式(預設)
+#"b":開啟二進位檔案模式
+#"+":開啟檔案供更新用(讀取與寫入)
+#可同時具有多項模式,ex:"wb":開啟二進位檔案來寫入
+fstream = open(".\\out1.txt",mode = "w")
+print("Testing for output",file=fstream)
+
+#不使用時要用close()，才可以觀察執行結果
+fstream.close()
+
+fstream1=open("d:\python\ch4\out1.txt",mode="W")#取代先前資料
+print("Testing for output",file=fstream1)
+fstream1.close()
+fstream2=open("d:\python\ch4\out1.txt",mode="a")#附加資料後面
+print("Testing for output",file=fstream2)
+fstream2.close()
+'''
+#input(""):無論輸入數值或字串資料均以字串型態儲存
+print("歡迎使用成績輸入系統")
+name = input("請輸入姓名:")
+english = input("請輸入英文成績:")
+math = input("請輸入數學成績:")
+
+#如果要執行數學運算要先用int()或float()
+total=int(english)+int(math)
+print("name資料型態是", type(name))
+print("engilsh資料型態是", type(english))
+print("%s 你的總分是 %d" % (name,total))
+'''
+'''
+#split():可以依據空白字元將字串分解成多個單字(字串型態)
+str1,str2=input().split()
+print("第一個單字 ",str1)
+print("第二個單字 ",str2)
+'''
+'''
+#map():(指定轉換後的型態(int或float),分析所得到的單字(input().split()))
+i1,i2,i3 = map(int,input().split())
+print(i1+i2+i3)
+f1,f2,f3 = map(float,input().split())
+print(f1+f2+f3)
+'''
+'''
+#eval():傳回運算式字串的運算結果
+print(eval("2 + 3 * 4"))
+print(eval(input()))
+
+#format():(輸出值,省略%的格式化字串)
+e=5/3
+print(format(e,"5.3f"))
+str1 = format(e,"5.4f")
+print(str1)
+print(f"5/3={e:5.3f}")
+print(str1)
+'''
+#python 最強之門 邁向數據科學之路 王者歸來 4
+'''
+#print()基本語法
+#基本語法格式:print(value,...,sep="",end="\n",file=sys.student,flush=False)
+#value:表示想要輸出的資料，可以一次輸出多筆資料，各資料間以逗號隔開
+#sep="":當輸出多筆資料時，可以插入各筆資料的分隔字元，預設:空白字元
+#end="\n":當資料輸出結束時所插入的字元，預設:插入換行字元，所以下一次print()的輸出會在下一列輸。如果想讓下次輸出不換列，可以在此設定空字串，或是空格或其他字串
+#file:資料輸出位置，預設:sys.student，也就是螢幕。也可以使用此設定，將輸出導入其他檔案或設備
+#flush:是否清除資料流的緩衝區，預設:不清除
+'''
+'''
+#print("輸出格式區"%(變數區))
+# %d:整數
+# %f:浮點數(取6位小數)
+# %x:16進位小數
+# %X:16進位小數(大寫)
+# %O:8進位整數
+# %s:字串
+# %e:科學記號
+# %E:科學記號(大寫)
+'''
+#字串格式化:(1)% (2){}和format() (3)f-strings
+'''
+#精準控制格式化輸出:
+#保留n格空間作資料輸出(預設靠右)，負號-靠左，正號表示正值時須加上正號
+# %(+|-)nd:整數
+# %(+|-)m.nf:浮點數(取6位小數) #m:空格、n:小數位數
+# %(+|-)nx:16進位小數
+# %(+|-)nO:8進位整數
+# %(+|-)ns:字串
+# %(+|-)e:科學記號
+# %(+|-)E:科學記號(大寫)
+'''
+'''
+#{}和format()
+score=90
+name="洪錦魁"
+count=1
+print("{}你的第{}次物理考試成績是{}".format(name,count,score))
+#在使用{}代表變數時，也可以在{}內增加編號n，n=format內變數的順序
+print("{0}你的第{1}次物理考試成績是{2}".format(name,count,score))
+print("{2}你的第{1}次物理考試成績是{0}".format(name,count,score))
+
+r=5
+PI=3.14159
+area=PI*r**2
+#0和1都是變數的順序
+print("/半徑是{0:3d} 圓面積是{1:10.2f}/".format(r,area))
+
+#>:靠右對齊
+#<:靠左對齊
+#^:置中
+print("/半徑是{0:>3d} 圓面積是{1:>10.2f}/".format(r,area))
+print("/半徑是{0:<3d} 圓面積是{1:<10.2f}/".format(r,area))
+print("/半徑是{0:^3d} 圓面積是{1:^10.2f}/".format(r,area))
+
+#填充字元的應用:字元是放在:的後面，在"<、^、>或指定寬度之前
+title="南極企鵝真可愛"
+print("/{0:*^20s}/".format(title))
+'''
+'''
+#f-strings
+score=90
+name="洪錦魁"
+count=1
+print(f"{name}你的第{count}次物理考試成績是{score}")
+
+r=5
+PI=3.14159
+area=PI*r**2
+print(f"/半徑是{r:3d} 圓面積是{area:10.2f}")
+
+print(f"/半徑是{r:>3d} 圓面積是{area:>10.2f}/")
+print(f"/半徑是{r:<3d} 圓面積是{area:<10.2f}/")
+print(f"/半徑是{r:^3d} 圓面積是{area:^10.2f}/")
+
+#f-strings設定輸出的應用
+name="洪錦魁"
+message=f"我是{name}"
+print(message)
+
+#f-strings和"="等號應用
+name="洪錦魁"
+score=90
+print(f"{name=}")
+print(f"物理考試{score=}")
+print(f"物理考試{score=:5.2f}")
+'''

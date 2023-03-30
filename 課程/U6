@@ -1,0 +1,382 @@
+#串列元素的型態可以不一樣
+james = ['Lebron James',23,19,22,31,18]
+james1 = [23,19,22,31,18]
+str6 = " I have a book. "
+car = ["honda","bnw","toyota","ford"]
+num = [7,12,30,12,30,9,8]
+num1 = [1,2,3,4,5,[6,7,8]]
+car1 = ["ford","audi"]
+str1 = "Lebron James"
+str2 = "python"
+
+'''
+print(type(james))
+print(james)
+'''
+'''
+#讀取串列元素
+print("列印james第1筆資料",james[0])
+print("列印james第2筆資料",james[1])
+print("列印james第3筆資料",james[2])
+print("列印james第4筆資料",james[3])
+print("列印james第5筆資料",james[4])
+print("列印james第6筆資料",james[5])
+'''
+'''
+#更改串列元素
+print("舊的串列資料:",james)
+james[3] = 20
+print("新的串列資料:",james)
+'''
+'''
+#串列與多重指定(串列解包)
+#多重指定變數的數量需要串列元素的個數相同，否則會有錯誤產生!
+g1,g2,g3,g4,g5,g6 = james[0],james[1],james[2],james[3],james[4],james[5]
+print("列印james的各項資料:",g1,g2,g3,g4,g5,g6)
+'''
+'''
+#串列切片:[start:end:step]=[開始:結束:間隔]
+print("讀取第1~3筆元素",james[0:3])
+print("讀取第2~4筆元素",james[1:4])
+print("讀取第1,3,5筆元素",james[0:5:2])
+'''
+'''
+first3 = james[:3]
+print(first3)
+onetolast = james[1:]
+print(onetolast)
+last3 = james[-3:]
+print(last3)
+'''
+'''
+print("倒數第一個元素",james[-1])
+print("倒數第三個元素",james[-3])
+print(james[-1],james[-2],james[-3],james[-4],james[-5],james[-6])
+'''
+'''
+#如果串列的元素全都是數值
+print("最大值 = ",max(james1))
+print("最小值 = ",min(james1))
+print("總和 = ",sum(james1))
+'''
+'''
+#如果串列的元素全都是字元或字串
+print("最高分 = ",max(james[1:6]))
+print("最低分 = ",min(james[1:6]))
+print("總分 = ",sum(james[1:6]))#sum()不可用!
+'''
+'''
+#len():傳回串列長度(元素的個數)
+print(len(james))
+TOM = []
+print(len(TOM))
+'''
+'''
+#刪除串列(元素/切片)
+print(james)
+del james
+print(james)
+#串列經刪除後不存在
+'''
+'''
+#刪除串列(元素):刪除指定索引的串列元素
+print("刪除前:",james)
+del james[2]
+print("刪除後:",james)
+'''
+'''
+#刪除串列(切片[start:end]):刪除串列區間元素
+print("刪除前:",james)
+del james[0:2]
+print("刪除後:",james)
+'''
+'''
+#刪除串列(切片[start:end:step]):每隔step區間再刪除串列元素
+print("刪除前:",james)
+del james[0:6:2]
+print("刪除後:",james)
+'''
+'''
+#upper():將字串中的英文字母改為大寫並回傳(專屬於字串類別的操作方式)
+strU = str6.upper()
+
+#lower():將字串中的英文字母改為小寫並回傳(專屬於字串類別的操作方式)
+strL = str6.lower()
+
+#title():將字串中的單字第一個字母改為大寫，其他為小寫並回傳(專屬於字串類別的操作方式)
+strT = str6.title()
+print("大寫:",strU,"\n小寫:",strL,"\n單字的第一個字母轉成大寫",strT)
+'''
+'''
+#lstrip():刪除字串左端多於空白
+#rstrip():刪除字串右端多於空白
+#strip():刪除字串兩端多於空白
+strL = str6.lstrip()
+strR = str6.rstrip()
+strO = str6.strip()
+print("/%s/" % strL)
+print("/%s/" % strR)
+print("/%s/" % strO)
+'''
+'''
+james[7] = "Nissan"
+'''
+'''
+#append():在串列末端增加元素-(第一個用法)
+james.append("Honda")
+print(james)
+james.append("Toyota")
+print(james)
+james.append("Ford")
+print(james)
+james.append("Nissan")
+print(james)
+'''
+'''
+#insert():插入串列元素到指定位置
+print("james的內容",james)
+james.insert(1,"LAKERS")
+print("james的內容",james)
+'''
+'''
+#pop():刪除(傳回)特定元素
+print("james的內容",james)
+popped = james.pop(1)
+print("被刪除的資料",popped)
+print("james的內容",james)
+'''
+'''
+print("james的內容",james)
+popped = james.pop()
+print("被刪除的資料",popped)
+print("james的內容",james)
+'''
+'''
+#remove():刪除指定內容的元素
+print("james的內容",james)
+james.remove(str1)
+print("james的內容",james)
+'''
+'''
+#reverse():反轉串列
+print(james[::-1])
+print(james)
+james.reverse()
+print(james)
+'''
+'''
+#sort():排序
+print("排序前",james1)
+james1.sort()#數字大小:小->大
+print("排序後1",james1)
+james1.sort(reverse = True)#數字大小:大->小
+print("排序後2",james1)
+'''
+'''
+print("排序前",car)
+car.sort()#字母開頭:小->大
+print("排序後1",car)
+car.sort(reverse = True)#字母開頭:大->小
+print("排序後2",car)
+'''
+'''
+#sorted():傳回排序的結果
+print("排序前",car)
+carSorted = sorted(car)#字母開頭:小->大
+print("排序後1",carSorted)
+print("排序前",car)#舊串列元素順序不變
+carSorted = sorted(car,reverse = True)#字母開頭:大->小
+print("排序後2",carSorted)
+print("排序前",car)
+'''
+'''
+#index():傳回特定值(第一次出現)的索引值
+search = 19
+i = james.index(search)
+print(i)
+search = 1
+i = james.index(search)#特定值不在，傳回錯誤
+print(i)
+#d.印出(c.找索引值(b.找最大值(a.串列切片)))
+#程式讀取順序:a->d
+print(james.index(max(james[1:])))
+'''
+'''
+#count():傳回特定值出現的次數
+search = 30
+i = num.count(search)
+print( "%d出現%d次" % (search,i))
+'''
+'''
+search = 11
+i = num.count(search)
+if(i!=0):#確定特定值存在時，才使用index()
+    print( "%d出現%d次" % (search,i))
+else:
+    print( "%d不存在" % search)
+'''
+
+#join():將串列的元素組成一個字串
+char = '_'
+listA = ["Silicon","Stone","Education"]
+print(char.join(listA))
+char = '***'
+print("\n",char.join(listA))
+char = '\n'
+print("\n",char.join(listA))
+
+'''
+print(num1[5])
+print(num1[5][0])
+print(num1[5][1])
+print(num1[5][2])
+'''
+'''
+print(num1[5])
+num1[5].append(9)#num[5]還是一個串列，所以可以在末端增加元素
+print(num1[5])
+'''
+'''
+#append():在串列插入另一串列的末端-(第二個用法)
+print("car1 = ",car)
+print("car2 = ",car1)
+car.append(car1)
+print("car1.append(car2) 後 car1 = ",car)
+print("car1.append(car2) 後 car2 = ",car1)
+car.extend(car1)
+print("car1.extend(car2) 後 car1 = ",car)
+print("car1.extend(car2) 後 car2 = ",car1)
+car2 = car + car1
+print(car2)
+'''
+'''
+#整數串列相加，結果元素重複出現實例
+print(james1+num)
+'''
+'''
+print(car1 * 3)
+'''
+'''
+print(str2[0])
+print(str2[-1])
+c0,c1,c2,c3,c4,c5 = str2
+print("多重指定的輸出 = ",c0,c1,c2,c3,c4,c5)
+'''
+'''
+print("第1~3個字元 =",str1[0:3])
+print("第2,4,6個字元 =",str1[1:6:2])
+print("第1到最後字元 =",str1[1:])
+print("前3個字元 =",str1[3:])
+print("後3個字元 =",str1[-3:])
+str1[0]="d"
+'''
+'''
+str3 = "A"*10
+print(str3)
+str4 = "ABC"
+str5 = str4*5
+print(str5)
+'''
+'''
+print("字串長度",len(str1))
+print("ASCII 最大的字元",max(str1))
+print("ASCII 最小的字元",min(str1))
+'''
+'''
+x = list("I have a book")
+print(x)
+x[9:]="apple."
+print(str(x))
+str6List = str6.split()
+print(str6List)
+print("本句子由 %d 個單字組成" % (len(str6List)))
+'''
+'''
+string = "python"
+c = input("請輸入字元 = ")
+print("Case 1 (in)")
+if c in string:
+    print("輸入字元在字串中")
+else:
+    print("輸入字元不在字串中")
+    
+print("Case 2 (not in)")
+if c not in string:
+    print("輸入字元不在字串中")
+else:
+    print("輸入字元在字串中")
+'''
+'''
+fruit = ["apple","banana","watermelon"]
+print("水果清單 = ",fruit)
+item = input("請輸入水果 = ")
+if item in fruit:
+    print("這個水果已經有了")
+else:
+    fruit.append(item)
+    fruit.sort()
+    print("新的水果清單 = ",fruit)
+'''
+'''
+x=100
+print("x 位址 = ",id(x))
+print("james1 位址 = ",id(james1))
+'''
+'''
+x=100;y=100;z=150;r=200
+print("x = %d, y = %d, z = %d, r = %d, " % (x,y,z,r))
+print("x位址 = %d, y位址 = %d, z位址 = %d, r位址 = %d, " % (id(x),id(y),id(z),id(r)))
+print("\n==執行 \"r = x\" ===")
+print("x is y?", x is y)
+print("x is r?", x is r)
+r = x
+print("x = %d, y = %d, z = %d, r = %d, " % (x,y,z,r))
+print("x位址 = %d, y位址 = %d, z位址 = %d, r位址 = %d, " % (id(x),id(y),id(z),id(r)))
+print("x is y?", x is y)
+print("x is r?", x is r)
+'''
+'''
+car2 = car [:]
+print("car的位址 =",id(car),"car =",car)
+print("car2的位址 =",id(car2),"car2 =",car2)
+print("car is car2?", car is car2)
+car.append("Ford")
+car2.append("audi")
+print("car 加入 Ford 和 car2 加入 audi 後, car =",car)
+print("car 加入 Ford 和 car2 加入 audi 後, car2 =",car2)
+car2 = car 
+print("\ncar的位址 =",id(car),"car =",car)
+print("car2的位址 =",id(car2),"car2 =",car2)
+print("car is car2?", car is car2)
+car.append("FOrd")
+car2.append("Audi")
+print("car 加入 FOrd 和 car2 加入 Audi 後, car =",car)
+print("car 加入 FOrd 和 car2 加入 Audi 後, car2 =",car2)
+'''
+'''
+seasons = ["spring","summer","autumn","winter"]
+enumerate_seasons = enumerate(seasons)
+print(type(enumerate_seasons))
+print(enumerate_seasons)
+print("計數值從0開始", list(enumerate_seasons))
+enumerate_seasons = enumerate(seasons,100)
+print("計數值從100開始", list(enumerate_seasons))
+'''
+#python 最強之門 邁向數據科學之路 王者歸來 6
+'''
+#lstrip():刪除字串左端多於空白
+#rstrip():刪除字串右端多於空白
+#strip():刪除字串兩端多於空白
+strL = str6.lstrip()
+strR = str6.rstrip()
+strO = str6.strip()
+print("/%s/" % strL)
+print("/%s/" % strR)
+print("/%s/" % strO)
+'''
+'''
+#center():字串置中對齊
+#rjust():字串靠右對齊
+#ljust():字串靠左對齊
+#zfill():可以設定字串長度，原字串靠右對齊，左邊多餘空間補0
+'''

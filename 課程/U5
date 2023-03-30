@@ -1,0 +1,129 @@
+'''
+if敘述
+statement1
+if(條件判斷):
+    程式碼區塊
+statement3
+'''
+'''
+if...else敘述
+statement1
+if(條件判斷):
+    程式碼區塊1
+else:
+    程式碼區塊2
+statement4
+'''
+sum = 0
+while True:
+    data = int(input("? "))
+    if (data >= 0):
+        sum += data
+    else:
+        break
+print(sum)
+
+'''
+x=5>4
+print(x)
+print(4>5)
+'''
+'''
+#邏輯運算子:and，or，not
+a = True and True
+b = False and False
+c = not True
+print(a,b,c)
+'''
+'''
+age = 81
+print(age<=6 or 80<=age)
+print(age<=6 and 80<=age)
+'''
+'''
+score = 50
+if(score<60):
+    print("不及格\n重考")
+'''
+'''
+num = input("請輸入任意數: ")
+x=float(num)
+if(x<0):
+    x=abs(x)
+    print("絕對值是 ",x)
+'''
+'''
+num = input("請輸入任意數: ")
+rem = int(num)%2
+if(rem):
+    print("%d 是奇數" % (int(num)))
+else:
+    print("%d 是偶數" % (int(num)))
+'''
+'''
+if...elif...else敘述
+if(條件判斷1):
+    程式碼區塊1
+elif(條件判斷2):
+    程式碼區塊2
+else:
+    程式碼區塊3
+'''
+'''
+sc = int(input("請輸入成績: "))
+if(sc >= 90):
+    print("A")
+elif(sc >= 80):
+    print("B")
+elif(sc >= 70):
+    print("C")
+elif(sc >= 60):
+    print("D")
+else:
+    print("E")
+'''
+'''
+ch = input("請輸入字元: ")
+if(ord('A') <= ord(ch) and ord(ch)<= ord('Z')):
+    print("這是大寫字元")
+elif(ord('a') <= ord(ch) and ord(ch)<= ord('z')):
+    print("這是小寫字元")
+elif(ord('0') <= ord(ch) and ord(ch)<= ord('9')):
+    print("這是阿拉伯數字")
+else:
+    print("這是特殊字元")
+'''
+'''
+巢狀if敘述
+'''
+
+year = input("請輸入年份: ")
+rem4 = int(year) % 4
+rem100 = int(year) % 100
+rem400 = int(year) % 400
+if(rem4 == 0):
+    if(rem100 != 0 or rem400 == 0):
+        print("%s 是閏年" % year)
+    else:
+        print("%s 不是閏年" % year)
+else:
+    print("%s 不是閏年" % year)
+'''
+'''
+#None值:定義(宣告)變數但尚未設定值
+x = None
+print(x)
+print(type(x))
+if(x == None):
+    print("尚未定義x")
+'''
+'''
+n = int(input())
+ans1 = "Odd" if n%2 else "Even"
+print(ans1)
+if n%2:
+    ans2 = "Odd"
+else:
+    ans2 = "Even"
+print(ans2)
+
