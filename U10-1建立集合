@@ -1,0 +1,44 @@
+#建立集合
+#10-1-1使用{}建立集合
+lang={"Python","C","Java"}
+print(lang)
+A={1,2,3,4,5}
+print(A)
+
+print(sep="")
+
+#10-1-2集合元素是唯一
+A={1,1,2,2,3,3,3}
+print(A)                #因為集合元素是唯一，所以即使建立集合時有元素重複，也只有一份會被保留
+
+print(sep="")
+
+#10-1-3使用set()建立集合
+A=set("Deepmind")
+print(A)                        #集合元素e有重複，但在集合內只出現一次，因為集合元素是唯一的
+                                #集合內的字母順序是被打散的，因為集合是無序的，
+A=set(["Python","Java","C"])
+print(A)
+
+print(sep="")
+
+#10-1-4集合的基數 基數:集合元素的數量
+A={1,3,5,7,9}
+print(len(A))
+
+print(sep="")
+
+#10-1-5建立空集合要用set()
+empty_dict={}                           #建立空字典
+print("列印類別=",type(empty_dict))
+empty_set=set()                         #建立空集合
+print("列印類別=",type(empty_set))
+
+print(sep="")
+
+#10-1-6大數據資料與集合的應用
+fruits1=["apple","orange","apple","banana","orange"]
+x=set(fruits1)                          #將串列轉集合
+fruits2=list(x)                         #將集合轉串列
+print("原先串列資料fruits1=",fruits1)
+print("新的串列資料fruits2=",fruits2)
