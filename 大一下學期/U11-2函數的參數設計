@@ -1,0 +1,4 @@
+#11-2-1傳遞一個參數
+def greeting(name):
+    print("Hi,"+name+" Good Morning")
+greeting("Nelson")
