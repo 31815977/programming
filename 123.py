@@ -21,8 +21,6 @@ def allprimes(n):
   print(prime)
   return prime
 
-allprimes(n)
-
 def Sort(alist):
   blist = len(alist)
   for i in range(blist-2):
