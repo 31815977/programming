@@ -1,3 +1,80 @@
+math={"Kevin","Peter","Eric"}
+physics={"Peter","Nelson","Tom"}
+
 #10-2-1交集(intersection) 符號:&
-math={"Kevin",""}
-intersection
+x=math&physics
+print("同時參加數學和物理的人",x)
+y=math.intersection(physics)
+print("同時參加數學和物理的人",y)
+
+print(sep="")
+
+#10-2-2聯集(union) 符號:|
+x=math|physics
+print("參加數學或物理的人",x)
+y=math.union(physics)
+print("參加數學或物理的人",y)
+
+print(sep="")
+
+#10-2-3差集(difference) 符號:-
+x=math-physics
+print("參加數學沒參加物理的人",x)
+y=math.difference(physics)
+print("參加數學沒參加物理的人",y)
+
+print(sep="")
+
+#10-2-4對稱差集(symmtric difference) 符號:^
+x=math^physics
+print("沒參加數學和物理的人",x)
+y=math.symmetric_difference(physics)
+print("沒參加數學和物理的人",y)
+
+print(sep="")
+
+#10-2-5等於 符號:==
+A={1,2,3,4,5}
+B={1,3,5,7,9}
+C={1,2,3,4,5}
+print("A與B集合是否相等",A==B)
+print("A與C集合是否相等",A==C)
+
+print(sep="")
+
+#10-2-6不等於 符號:!=
+A={1,2,3,4,5}
+B={1,3,5,7,9}
+C={1,2,3,4,5}
+print("A與B集合是否相等",A!=B)
+print("A與C集合是否相等",A!=C)
+
+print(sep="")
+
+#10-2-7是成員in
+#法1
+fruit=set("orange")
+print(fruit)
+print("a是屬於fruit集合?","a" in fruit)
+print("d是屬於fruit集合?","d" in fruit)
+#法2
+car=("Nisson","Toyota","Ford")
+boolean="Ford" in car
+print("Ford in car?",boolean)
+boolean="Audi" in car
+print("Audi in car?",boolean)
+
+print(sep="")
+
+#10-2-8不是成員not in
+#法1
+fruit=set("orange")
+print(fruit)
+print("a是屬於fruit集合?","a" not in fruit)
+print("d是屬於fruit集合?","d" not in fruit)
+#法2
+car=("Nisson","Toyota","Ford")
+boolean="Ford" not in car
+print("Ford in car?",boolean)
+boolean="Audi" not in car
+print("Audi in car?",boolean)

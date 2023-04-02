@@ -1,0 +1,69 @@
+#10-3-1 add() 語法:集合名稱.add(新增元素)
+A={"Taipei","Beijing","Tokyo"}
+A.add("Chicago")
+print("A集合內容:",A)
+A.add("Bejing")
+print("A集合內容:",A)
+tup=(1,2,3)
+A.add(tup)
+print("A集合內容:",A)
+
+print(sep="")
+
+#10-3-2 copy() 語法:新集合名稱=舊集合名稱.copy()
+#賦值
+a={1,2,3}
+b=a
+b.add(10)
+print("賦值->觀察a",a)
+print("賦值->觀察b",b)
+
+#淺拷貝
+a={1,2,3}
+b=a.copy()
+b.add(10)
+print("賦值->觀察a",a)
+print("賦值->觀察b",b)
+
+print(sep="")
+
+#10-3-3 remove() 語法:集合名稱.remove(欲刪除元素)
+#如果指定刪除的元素存在集合內，remove()可以刪除元素，反之不存在，會出現錯誤
+countries={"Japan","China","France"}
+print("刪除前的countries集合:",countries)
+countries.remove("Japan")
+print("刪除後的countries集合:",countries)
+'''
+#會錯誤的範例
+countries.remove("Japan")
+print("刪除後的countries集合:",countries)
+'''
+print(sep="")
+
+#10-3-4 discard() 語法:ret_value(正確的值?).discard(欲刪除的元素)
+animals={"dog","cat","bird"}
+print("刪除前的animals集合:",animals)
+animals.discard("cat")                                  #刪除在集合的元素
+print("刪除後的animals集合:",animals)
+animals.discard("pig")                                  #刪除不在集合的元素
+print("刪除後的animals集合:",animals)
+print("刪除資料存在的回傳值:",animals.discard("cat"))   #列印回傳值
+print("刪除資料不存在的回傳值:",animals.discard("pig"))
+
+print(sep="")
+
+#10-3-5 pop() 語法:ret_element(正確的元素?)=集合名稱.pop()
+#pop是用隨機方式刪除集合元素，所刪除的元素會被傳回，如果集合是空集合會產生錯誤
+animals={"dog","cat","bird"}
+print("刪除前的animals集合:",animals)
+x=animals.pop()
+print("刪除後的animals集合:",animals)
+print("所刪除的資料:",x)
+
+print(sep="")
+
+#10-3-6 clear() 語法:集合.clear()
+A={"Mississippi","Idaho","Florida"}
+print("刪除前的集合",A)
+A.clear()
+print("刪除後的集合",A)
