@@ -64,6 +64,50 @@ print(sep="")
 
 #10-3-6 clear() 語法:集合.clear()
 A={"Mississippi","Idaho","Florida"}
-print("刪除前的集合",A)
+print("刪除前的集合:",A)
 A.clear()
-print("刪除後的集合",A)
+print("刪除後的集合:",A)
+
+print(sep="")
+
+#10-3-7 共同元素isdisjoint() 語法:ret_boolean=集合A.isdisjoint(集合B)
+A={"a","b","c"}
+B={"c","d","e"}
+C={"f","g","h"}
+boolean=A.isdisjoint(B)
+print("有共同元素:",boolean)
+boolean=A.isdisjoint(C)
+print("沒有共同元素:",boolean)
+
+print(sep="")
+
+#10-3-8子集合issubet() 語法:布林值=子集合名稱.issubset(集合名稱)
+A={"a","b","c"}
+B={"a","b","c","d","e"}
+C={"e","f","g"}
+boolean=A.issubset(B)
+print("A是B的子集合:",boolean)
+boolean=A.issubset(C)
+print("C不是B的子集合:",boolean)
+
+print(sep="")
+
+#10-3-9父集合issuperset() 語法:布林值=父集合名稱.issuperset(集合名稱)
+#10-3-10傳回集合的交集intersection_update() 語法:ret_value=A.intersection_update(*B) *B在這代表多個集合
+#10-3-11 使用聯集更新集合內容update() 語法:集合名稱.update(集合名稱)
+car1={"Audi","Ford","Toyota"}
+car2={"Nissan","Toyota"}
+print("執行update()前列出car1和car2內容")
+print("car1=",car1)
+print("car2=",car2)
+car1.update(car2)                       #將car2加到car1內
+print("執行update()後列出car1和car2內容")
+print("car1=",car1)
+print("car2=",car2)
+
+print(sep="")
+
+#10-3-12 difference_update() 語法:集合A.difference_update(集合B)
+#將集合A和集合B內重複的元素刪除，結果存在A集合
+#10-3-13 symmetric_difference_update() 語法:集合A.symmetric_difference_update(集合B)
+#與10-2-4的對稱差集觀念一樣，但是只更改呼叫此方法的集合
