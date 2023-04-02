@@ -1,4 +1,5 @@
 #10-3-1 add() 語法:集合名稱.add(新增元素)
+#集合是無序，所以可能會獲得不同的排列結果
 A={"Taipei","Beijing","Tokyo"}
 A.add("Chicago")
 print("A集合內容:",A)
@@ -13,17 +14,17 @@ print(sep="")
 #10-3-2 copy() 語法:新集合名稱=舊集合名稱.copy()
 #賦值
 a={1,2,3}
-b=a
+b=a                     #兩者相同
 b.add(10)
-print("賦值->觀察a",a)
-print("賦值->觀察b",b)
+print("賦值->觀察a:",a)
+print("賦值->觀察b:",b)
 
 #淺拷貝
 a={1,2,3}
-b=a.copy()
+b=a.copy()              #兩者不同
 b.add(10)
-print("賦值->觀察a",a)
-print("賦值->觀察b",b)
+print("賦值->觀察a:",a)
+print("賦值->觀察b:",b)
 
 print(sep="")
 
@@ -88,7 +89,7 @@ C={"e","f","g"}
 boolean=A.issubset(B)
 print("A是B的子集合:",boolean)
 boolean=A.issubset(C)
-print("C不是B的子集合:",boolean)
+print("C是B的子集合:",boolean)
 
 print(sep="")
 
