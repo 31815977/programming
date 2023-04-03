@@ -1,0 +1,153 @@
+#11-3-1傳回None
+#這個程式並沒有做回傳值設計，筆者將列出python回傳greeting()函數的資料是否為None，同時列出傳回值的資料型態
+def greeting(name):
+    '''python函數需傳遞名字name'''
+    print("Hi,",name,"Good Morning")
+ret_value=greeting("Nelson")
+print(f"greeting()傳回值={ret_value}")
+print(f"{ret_value}的type={type(ret_value)}")
+
+print(sep="")
+
+#11-3-2簡單回傳數值資料
+def subtract(x1,x2):
+    '''減法設計'''
+    result=x1-x2
+    return result
+print("本程式會執行a-b的運算")
+a=int(input("a="))
+b=int(input("b="))
+print("a-b=",subtract(a,b))
+
+print(sep="")
+
+def subtract(x1,x2):
+    '''減法設計'''
+    return x1-x2
+def addition(x1,x2):
+    '''加法設計'''
+    return x1+x2
+'''使用者輸入'''
+print("請輸入運算")
+print("1:加法")
+print("2:減法")
+op=int(input("輸入1/2:"))
+a=int(input("a="))
+b=int(input("b="))
+'''程式運算'''
+if op==1:
+    print("a+b=",addition(a,b))#輸出a+b字串和結果
+elif op==2:
+    print("a-b=",subtract(a,b))#輸出a-b字串和結果
+else:
+    print("運算方法錯誤")
+
+print(sep="")
+
+#11-3-3傳回多筆資料的應用-實質是回傳tuple
+def mutifunction(x1,x2):
+    '''加、減、乘、除'''
+    addresult=x1+x2
+    subresult=x1-x2
+    mulresult=x1*x2
+    divresult=x1/x2
+    return addresult,subresult,mulresult,divresult
+x1=x2=10
+add,sub,mul,div=mutifunction(x1,x2)
+print("加法結果=",add)
+print("減法結果=",sub)
+print("乘法結果=",mul)
+print("除法結果=",div)
+
+print(sep="")
+
+def mutifunction(x1,x2):
+    '''加、減、乘、除'''
+    addresult=x1+x2
+    subresult=x1-x2
+    mulresult=x1*x2
+    divresult=x1/x2
+    return addresult,subresult,mulresult,divresult
+x1=x2=10
+ans=mutifunction(x1,x2)     #重新設計前一個程式，驗證函數回傳多個數值，其實是回傳元組物件(tuple)，同時列出結果
+print("資料型態:",type(ans))
+print("加法結果=",ans[0])
+print("減法結果=",ans[1])
+print("乘法結果=",ans[2])
+print("除法結果=",ans[3])
+
+print(sep="")
+
+#11-3-4簡單回傳字串資料
+def guest_info(firstname,middlename,lastname,gender):
+    '''整合客戶名字資料'''
+    if gender=="M":
+        welcome=lastname+middlename+firstname+"先生歡迎你"
+    else:
+        welcome=lastname+middlename+firstname+"小姐歡迎妳"
+    return welcome
+info1=guest_info("森","宇","趙","M")
+info2=guest_info("星","冰","洪","F")
+print(info1)
+print(info2)
+
+print(sep="")
+
+#11-3-5再談參數預設值
+def guest_info(firstname,lastname,gender,middlename=''):
+    '''整合客戶名字資料'''
+    if gender=="M":
+        welcome=f"{lastname}{middlename}{firstname}先生歡迎你"
+    else:
+        welcome=f"{lastname}{middlename}{firstname}小姐歡迎妳"
+    return welcome
+info1=guest_info("森","宇","趙","M")
+info2=guest_info("星","冰","洪","F")
+print(info1)
+print(info2)
+
+print(sep="")
+
+#11-3-6函數回傳字典資料
+def build_vip(id,name):
+    '''建立VIP資料'''
+    vip_dict={'VIP_ID':id,'Name':name}
+    return vip_dict
+member=build_vip('101','Nelson')
+print(member)
+
+print(sep="")
+
+def build_vip(id,name,tel=''):
+    '''建立VIP資料'''
+    vip_dict={'VIP_ID':id,'Name':name}
+    if tel:
+        vip_dict['Tel']=tel
+    return vip_dict
+member1=build_vip('101','Nelson')
+member2=build_vip('102','Henry','09123456789')
+print(member1)
+print(member2)
+
+print(sep='')
+
+#11-3-7將迴圈應用在建立VIP會員字典
+def build_vip(id,name,tel=''):
+    '''建立VIP資料'''
+    vip_dict={'VIP_ID':id,'Name':name}
+    if tel:
+        vip_dict['Tel']=tel
+    return vip_dict
+while True:
+    print("建立VIP資訊系統")
+    idnum=input("請輸入ID:")
+    name=input("請輸入姓名:")
+    tel=input("請輸入電話號碼:")
+    member=build_vip(idnum,name,tel)
+    print(member,'\n')
+    repeat=input("是否繼續(y/n)? 輸入非y字元可結束系統:")
+    if repeat!='y':
+        break
+print("歡迎下次使用")
+
+print(sep='')

@@ -1,0 +1,33 @@
+#11-5-1基本傳遞處理任意數量的參數
+def make_icecream(*toppings):
+    '''列出製作冰淇淋的配料'''
+    print("這個冰淇淋所加配料如下")
+    for topping in toppings:
+        print("---",topping)
+make_icecream('草莓醬')
+make_icecream('草莓醬','葡萄乾','巧克力碎片')
+
+print(sep='')
+
+#11-5-2設計含有一般參數與任意數量參數的函數
+def make_icecream(icecream_type,*toppings):
+    '''列出製作冰淇淋的配料'''
+    print("這個",icecream_type,"冰淇淋所加配料如下")
+    for topping in toppings:
+        print("---",topping)
+make_icecream('香草','草莓醬')
+make_icecream('芒果','草莓醬','葡萄乾','巧克力碎片')
+
+print(sep='')
+
+#11-5-3設計含有一般參數與任意數量的關鍵字參數
+def build_dict(name,age,**players):
+    '''建立NBA球員的字典資料'''
+    info={}                             #建立空字典
+    info["Name"]=name
+    info["Age"]=age
+    for key,value in players.items():
+        info[key]=value
+    return info                         #回傳所見字典
+player_dict=build_dict('James','32',City='Cleveland',State='Ohio')
+print(player_dict)                      #列印所建字典

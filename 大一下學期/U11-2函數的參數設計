@@ -2,3 +2,54 @@
 def greeting(name):
     print("Hi,"+name+" Good Morning")
 greeting("Nelson")
+
+print(sep="")
+
+#11-2-2多個參數傳遞
+def subtract(x1,x2):
+    '''減法設計'''
+    result=x1-x2
+    print(result)
+print("本程式會執行a-b的運算")
+a=eval(input("a="))
+b=eval(input("b="))
+print("a-b=",end="")
+subtract(a,b)
+
+print(sep="")
+
+def interest(interest_type,subject):
+    '''顯示興趣和主題'''
+    print("我的興趣是"+interest_type)
+    print("在"+interest_type+"中,最喜歡的是"+subject)
+    print()
+interest("旅遊","敦煌")
+interest("程式設計","python")
+
+print(sep="")
+
+#11-2-3關鍵字參數 參數名稱=值
+def interest(interest_type,subject):
+    '''顯示興趣和主題'''
+    print(f"我的興趣是{interest_type}")
+    print(f"在{interest_type}中,最喜歡的是{subject}")
+    print()
+interest(interest_type="旅遊",subject="敦煌")#位置正確
+interest(subject="敦煌",interest_type="旅遊")#位置更動
+
+print(sep="")
+
+#11-2-4參數預設值的處理
+def interest(interest_type,subject="敦煌"):
+    '''顯示興趣和主題'''
+    print(f"我的興趣是{interest_type}")
+    print(f"在{interest_type}中,最喜歡的是{subject}")
+    print()
+interest("旅遊")                                #傳遞一個參數
+interest(interest_type="旅遊")                  #傳遞一個參數
+interest("旅遊","張家界")                       #傳遞兩個參數
+interest(interest_type="旅遊",subject="張家界") #傳遞兩個參數
+interest(subject="張家界",interest_type="旅遊") #傳遞兩個參數
+interest("閱讀","旅遊類")                       #傳遞兩個參數，不同的主題
+
+print(sep="")

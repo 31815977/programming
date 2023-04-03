@@ -1,0 +1,9 @@
+#11-6-1函數文件字串Docstring
+def greeting(name):
+    '''python函數需傳遞名字name'''#函數註解=文件字串
+    print("Hi",name,"Good Morning")
+greeting('Nelson')
+
+print(sep='')
+
+#11-6-2函數是一個物件(基本觀念 之後再打)

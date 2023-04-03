@@ -1,0 +1,7 @@
+#11-7-1從掉入無限遞迴說起
+import time
+def recur(i):
+    print(i,end="\t")
+    time.sleep(1)
+    return recur(i-1)
+recur(5) 
