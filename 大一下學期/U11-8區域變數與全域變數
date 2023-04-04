@@ -1,0 +1,51 @@
+#11-8-1全域變數可以在所有函數使用
+def printmsg():
+    '''函數本身沒有定義變數,只有執行列印全域變數功能'''
+    print("函數列印",msg)#列印全域變數
+msg="Global Variable"
+print("主程式列印",msg)
+printmsg()
+
+print(sep="")
+
+#11-8-2區域變數與全域變數使用相同名稱
+def printmsg():
+    '''函數本身沒有定義變數,只有執行列印全域變數功能'''
+    msg="Local Variable"
+    print("函數列印",msg)#列印全域變數
+msg="Global Variable"
+print("主程式列印",msg)
+printmsg()
+
+print(sep="")
+
+#11-8-3程式設計需注意事項
+'''
+1.區域變數內容無法在其他函數引用
+2.區域變數內容無法在主程式引用
+3.如果要在函數內要存取或修改全域變數值,需在函數內使用global宣告此變數
+'''
+def printmsg():
+    global msg
+    msg="Java"
+    print(f"函數列印:更改後:{msg}")#列印全域變數
+msg="Python"
+print("主程式列印:更改前:{msg}")
+printmsg()
+print("主程式列印:更改後:{msg}")
+
+print(sep="")
+
+#11-8-4 locals()和globals()
+'''
+locals():可以用字典方式列出所有的區域變數名稱與內容
+globals():可以用字典方式列出所有的全域變數名稱與內容
+'''
+def printlocal():
+    lang="Java"
+    print(f"語言:{lang}")
+    print(f"區域變數:{locals()}")
+msg="Python"
+printlocal()
+print(f"語言:{msg}")
+print(f"全域變數:{globals()}")

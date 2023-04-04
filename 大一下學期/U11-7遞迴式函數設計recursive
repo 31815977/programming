@@ -1,7 +1,72 @@
 #11-7-1從掉入無限遞迴說起
+'''無限迴圈
 import time
 def recur(i):
     print(i,end="\t")
-    time.sleep(1)
+    time.sleep(1)       #休息1秒
     return recur(i-1)
 recur(5) 
+'''
+print(sep='')
+
+import time
+def recur(i):
+    print(i,end="\t")
+    time.sleep(1)       #休息1秒
+    if(i<=1):           #結束條件
+        return 0
+    else:
+        return recur(i-1)#每次呼叫讓自己減1
+recur(5)#輸出5,4,3,2,1
+
+print(sep='')
+
+def recur(i):
+    if(i<1):            #結束條件
+        return 0
+    else:
+        recur(i-1)      #每次呼叫讓自己減1
+    print(i,end='\t')
+recur(5)#輸出1,2,3,4,5
+
+print(sep='')
+
+#11-7-2非遞迴式設計階乘數(n!)函數
+def factorial(n):
+    '''計算n階乘,n必須是正整數'''
+    fact=1
+    for i in range(1,n+1):
+        fact*=1
+    return fact
+value=3
+print(f'{value}的階乘結果是={factorial(value)}')
+value=5
+print(f'{value}的階乘結果是={factorial(value)}')
+
+print(sep='')
+
+#11-7-3從一般函數進化到遞迴函數
+def factorial(n):
+    '''計算n階乘,n必須是正整數'''
+    if n==1:
+        return 1
+    else:
+        return (n*factorial(n-1))
+value=3
+print(f'{value}的階乘結果是={factorial(value)}')
+value=5
+print(f'{value}的階乘結果是={factorial(value)}')
+
+print(sep='')
+
+#11-7-4 python的遞迴次數限制
+#python預設最大遞迴次數1000次
+import sys
+print(sys.getrecursionlimit())
+
+print(sep='')
+'''跑程式有錯誤
+import sys
+sys.getrecursionlimit(100)#sys.getrecursionlimit(x):可以設定最大遞迴次數,參數x就是遞迴次數
+print(sys.getrecursionlimit())
+'''

@@ -1,0 +1,31 @@
+#11-9-1匿名函數lambda的語法 語法:lambda arg1[,arg2,...argn]:expression #arg1是參數，可以有多個參數
+#使用一般函數
+def square(x):
+    value=x**2
+    return value
+print(square(10))#輸出平方值
+
+print(sep="")
+
+#定義lambda函數
+def square(x):
+    value=lambda x:x**2
+    return value
+print(square(10))#輸出平方值
+
+print(sep="")
+
+#定義lambda函數
+product=lambda x,y=x*y
+print(product(5,10))
+
+print(sep="")
+#11-9-2
+print(sep="")
+#11-9-3
+print(sep="")
+#11-9-4
+print(sep="")
+#11-9-5
+print(sep="")
+#11-9-6
