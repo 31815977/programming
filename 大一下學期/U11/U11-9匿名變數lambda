@@ -1,0 +1,116 @@
+#11-9-1匿名函數lambda的語法 語法:lambda arg1[,arg2,...argn]:expression #arg1是參數，可以有多個參數
+#使用一般函數
+def square(x):
+    value=x**2
+    return value
+print(square(10))#輸出平方值
+
+print(sep="")
+
+#定義lambda函數
+def square(x):
+    value=lambda x:x**2
+    return value
+print(square(10))#輸出平方值
+
+print(sep="")
+'''跑程式有錯誤
+#定義lambda函數
+product=lambda x,y=x*y#含兩個參數的匿名函數應用,可以傳回參數的積(相乘的結果)
+print(product(5,10))
+
+print(sep="")
+'''
+#11-9-2使用lambda匿名函數的理由
+def func(b):
+    return lambda x:2*x+b
+linear=func(5)          #5將傳給lambda的b
+print(linear(10))       #10是lambda的x
+
+print(sep="")
+
+def func(b):
+    return lambda x:2*x+b
+linear=func(5)          #5將傳給lambda的b
+print(linear(10))       #10是lambda的x
+linear2=func(3)
+print(linear2(10))
+
+print(sep="")
+
+#11-9-3匿名函數應用在高階函數的參數
+def mycar(cars,func):
+    for car in cars:
+        print(func(car))
+def wdcar(carbrand):
+    return "My dream car is "+carbrand.title()
+dreamcars=["porsche","rolls royce","maserati"]
+mycar(dreamcars,wdcar)
+
+print(sep="")
+
+def mycar(cars,func):
+    for car in cars:
+        print(func(car))
+dreamcars=["porsche","rolls royce","maserati"]
+mycar(dreamcars,lambda carbrand:"My dream car is "+carbrand.title())
+
+print(sep="")
+
+#11-9-4匿名函數使用與filter() 作用:篩選序列 語法:filter(func,iterable)
+#使用傳統函數定義方式將串列元素內容篩選出奇數的元素
+def oddfn(x):
+    return x if (x%2==1)else None
+mylist=[5,10,15,20,25,30]
+filter_object=filter(oddfn,mylist)                      #傳回filter object
+print("奇數串列:",[item for item in filter_object])     #輸出奇數串列
+
+print(sep="")
+
+oddlist=[item for item in filter_object]
+print("奇數串列:",oddlist)#輸出奇數串列
+
+print(sep="")
+
+#使用匿名函數重新設計
+mylist=[5,10,15,20,25,30]
+oddlist=list(filter(lambda x:x(x%2==1),mylist))
+print("奇數串列:",oddlist)     #輸出奇數串列
+
+print(sep='')
+
+#11-9-5匿名函數使用與map() 語法:map(func,iterable)
+mylist=[5,10,15,20,25,30]
+squarelist=list(map(lambda x:x**2,mylist))
+print("串列的平方值:",squarelist)
+
+print(sep="")
+
+#11-9-6匿名函數使用與reduce() 語法:reduce(func,iterable) #func必須有2個參數
+from functools import reduce
+def strToTnt(s):
+    def func(x,y):
+        return 10*x+y
+    def charToNum(s):
+        print("s=",type(s),s)
+        mydict={'0':0,'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9}
+        n=mydict[s]
+        print('n=',type(n),n)
+        return n
+    return reduce(func,map(charToNum,s))
+string='5487'
+x=strToTnt(string)+10
+print('x=',x)
+
+print(sep='')
+
+from functools import reduce
+def strToTnt(s):
+        def charToNum(s):
+             return {'0':0,'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9}
+        return reduce(lambda x,y:10*x+y,map(charToNum,s))
+string='5487'
+x=strToTnt(string)+10
+print("x=",x)
+
+print(sep="")
