@@ -3,7 +3,7 @@
 A={"Taipei","Beijing","Tokyo"}
 A.add("Chicago")
 print("A集合內容:",A)
-A.add("Bejing")
+A.add("Beijing")
 print("A集合內容:",A)
 tup=(1,2,3)
 A.add(tup)
@@ -19,12 +19,12 @@ b.add(10)
 print("賦值->觀察a:",a)
 print("賦值->觀察b:",b)
 
-#淺拷貝
+#淺拷貝shallow copy
 a={1,2,3}
 b=a.copy()              #兩者不同
-b.add(10)
-print("賦值->觀察a:",a)
-print("賦值->觀察b:",b)
+b.add(100)
+print("拷貝->觀察a:",a)
+print("拷貝->觀察b:",b)
 
 print(sep="")
 
