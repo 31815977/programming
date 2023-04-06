@@ -3,7 +3,7 @@
 A={"Taipei","Beijing","Tokyo"}
 A.add("Chicago")
 print("A集合內容:",A)
-A.add("Beijing")
+A.add("Beijing")        #集合裡已經有'Beijing'字串，所以不改變集合A的內容
 print("A集合內容:",A)
 tup=(1,2,3)
 A.add(tup)
@@ -36,7 +36,7 @@ countries.remove("Japan")
 print("刪除後的countries集合:",countries)
 '''
 #會錯誤的範例
-countries.remove("Japan")
+countries.remove("Japan")#刪除不存在的元素會出現錯誤
 print("刪除後的countries集合:",countries)
 '''
 print(sep="")
@@ -94,6 +94,16 @@ print("C是B的子集合:",boolean)
 print(sep="")
 
 #10-3-9父集合issuperset() 語法:布林值=父集合名稱.issuperset(集合名稱)
+A={"a","b","c"}
+B={"a","b","c","d","e"}
+C={"e","f","g"}
+boolean=B.issuperset(A)
+print("B是A的父集合:",boolean)
+boolean=B.issuperset(C)
+print("B是C的父集合:",boolean)
+
+print(sep="")
+
 #10-3-10傳回集合的交集intersection_update() 語法:ret_value=A.intersection_update(*B) *B在這代表多個集合
 #10-3-11 使用聯集更新集合內容update() 語法:集合名稱.update(集合名稱)
 car1={"Audi","Ford","Toyota"}
