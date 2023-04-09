@@ -7,4 +7,4 @@ print("聯集=",x|y)
 A=x&y
 print("交集A=",A)
 A=x.intersection(y)
-print("交集=",A)
+print("交集A=",A)
