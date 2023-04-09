@@ -26,6 +26,7 @@ print("參加數學沒參加物理的人",y)
 print(sep="")
 
 #10-2-4對稱差集(symmtric difference) 符號:^
+#想獲得A或B集合元素，但試想排除A和B的共同元素
 x=math^physics
 print("沒參加數學和物理的人",x)
 y=math.symmetric_difference(physics)

@@ -1,6 +1,6 @@
-#enumerate():傳回連續整數配對的enumerate物件
+#enumerate():傳回連續整數配對的enumerate物件 (看6-12，7-5)
 #len():元素數量
 #max():最大值
 #min():最小值
-#sorted():傳回已經排序的序列，集合本身則不改變
+#sorted():傳回已經排序的序列，集合本身則不改變 語法:A=sorted(B,reverse=False)(預設:小到大)
 #sum():總和
