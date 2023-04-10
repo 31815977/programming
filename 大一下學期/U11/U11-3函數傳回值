@@ -1,4 +1,5 @@
 #11-3-1傳回None
+#此程式沒有"return [回傳值]",python直譯時會自動將回傳處理成"return None"
 #這個程式並沒有做回傳值設計，筆者將列出python回傳greeting()函數的資料是否為None，同時列出傳回值的資料型態
 def greeting(name):
     '''python函數需傳遞名字name'''
@@ -101,8 +102,8 @@ def guest_info(firstname,lastname,gender,middlename=''):
     else:
         welcome=f"{lastname}{middlename}{firstname}小姐歡迎妳"
     return welcome
-info1=guest_info("森","宇","趙","M")
-info2=guest_info("星","冰","洪","F")
+info1=guest_info("森","宇","M")
+info2=guest_info("星","冰","F","洪")
 print(info1)
 print(info2)
 

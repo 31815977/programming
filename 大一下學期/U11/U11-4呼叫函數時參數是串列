@@ -13,13 +13,13 @@ print(sep="")
 
 #11-4-2觀察傳遞一般變數與串列變數到函數的區別
 def mydata(n):
-    print("副程式id(n)=:",id(n),"\t",n)
+    print("(1)副程式id(n)=:",id(n),"\t",n)
     n=5
-    print("副程式id(n)=:",id(n),"\t",n)
+    print("(2)副程式id(n)=:",id(n),"\t",n)
 x=1
-print("主程式id(x)=:",id(x),"\t",x)
+print("(3)主程式id(x)=:",id(x),"\t",x)
 mydata(x)
-print("主程式id(x)=:",id(x),"\t",x)
+print("(4)主程式id(x)=:",id(x),"\t",x)
 '''
 從上述程式可以發現主程式在呼叫mydata()函數時傳遞了參數x，在mydata()函數中將變數設為n，當第四列變數內容更改為5時，這個變數在記憶體的地址也更改了，
 所以函數mydata()執行結束時回到主程式，第十列可以得到原先主程式的變數x仍然是1。
@@ -28,13 +28,13 @@ print("主程式id(x)=:",id(x),"\t",x)
 print(sep="")
 
 def mydata(n):
-    print(f"副程式id(n)=:{id(n)}\t{n}")
+    print(f"(1)副程式id(n)=:{id(n)}\t{n}")
     n[0]=5
-    print(f"副程式id(n)=:{id(n)}\t{n}")
+    print(f"(2)副程式id(n)=:{id(n)}\t{n}")
 x=[1,2]
-print("主程式id(x)=:",id(x),"\t",x)
+print("(3)主程式id(x)=:",id(x),"\t",x)
 mydata(x)
-print("主程式id(x)=:",id(x),"\t",x)
+print("(4)主程式id(x)=:",id(x),"\t",x)
 '''
 從上述執行結果可以得到，串列變數的位址不論是在主程式或是函數皆保持一致，所以第四列函數mydata()內串列內容改變時，函數執行結束回到主程式可以看到主程式串列內容也更改了。
 '''
