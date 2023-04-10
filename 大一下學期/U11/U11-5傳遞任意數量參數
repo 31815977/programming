@@ -1,3 +1,4 @@
+#def A(x,y,z,*a_tuple,**b_dict)
 #11-5-1基本傳遞處理任意數量的參數
 def make_icecream(*toppings):
     '''列出製作冰淇淋的配料'''
@@ -10,6 +11,7 @@ make_icecream('草莓醬','葡萄乾','巧克力碎片')
 print(sep='')
 
 #11-5-2設計含有一般參數與任意數量參數的函數
+#*x:可接續單一長度的參數(參數內容沒有限定,可以是數值or字串or list or dict)
 def make_icecream(icecream_type,*toppings):
     '''列出製作冰淇淋的配料'''
     print("這個",icecream_type,"冰淇淋所加配料如下")
@@ -21,6 +23,7 @@ make_icecream('芒果','草莓醬','葡萄乾','巧克力碎片')
 print(sep='')
 
 #11-5-3設計含有一般參數與任意數量的關鍵字參數
+#**x:可接續單一長度的字典內容(唯獨字典的格式),且必須使用key=value的格式,且key值不可以是數值
 def build_dict(name,age,**players):
     '''建立NBA球員的字典資料'''
     info={}                             #建立空字典
