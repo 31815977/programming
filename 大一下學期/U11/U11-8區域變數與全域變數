@@ -30,9 +30,9 @@ def printmsg():
     msg="Java"                      #更改全域變數
     print(f"函數列印:更改後:{msg}")
 msg="Python"
-print("主程式列印:更改前:{msg}")
+print(f"主程式列印:更改前:{msg}")
 printmsg()
-print("主程式列印:更改後:{msg}")
+print(f"主程式列印:更改後:{msg}")
 
 print(sep="")
 
