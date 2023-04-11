@@ -3,7 +3,7 @@
 def square(x):
     value=x**2
     return value
-print(square(10))#輸出平方值
+print(square(3))#輸出平方值
 
 print(sep="")
 
@@ -39,16 +39,17 @@ print(linear2(10))
 print(sep="")
 
 #11-9-3匿名函數應用在高階函數的參數
+#以一般函數當作函數參數
 def mycar(cars,func):
     for car in cars:
         print(func(car))
 def wdcar(carbrand):
-    return "My dream car is "+carbrand.title()
+    return "My dream car is "+carbrand.title() #str.title():所有單詞開頭大寫
 dreamcars=["porsche","rolls royce","maserati"]
 mycar(dreamcars,wdcar)
 
 print(sep="")
-
+#使用匿名函數取代wdcar()
 def mycar(cars,func):
     for car in cars:
         print(func(car))
@@ -67,6 +68,10 @@ print("奇數串列:",[item for item in filter_object])     #輸出奇數串列
 
 print(sep="")
 
+def oddfn(x):
+    return x if (x%2==1)else None
+mylist=[5,10,15,20,25,30]
+filter_object=filter(oddfn,mylist) 
 oddlist=[item for item in filter_object]
 print("奇數串列:",oddlist)#輸出奇數串列
 
@@ -74,7 +79,7 @@ print(sep="")
 
 #使用匿名函數重新設計
 mylist=[5,10,15,20,25,30]
-oddlist=list(filter(lambda x:x(x%2==1),mylist))
+oddlist=list(filter(lambda x:(x%2==1),mylist))
 print("奇數串列:",oddlist)     #輸出奇數串列
 
 print(sep='')
@@ -107,7 +112,7 @@ print(sep='')
 from functools import reduce
 def strToTnt(s):
         def charToNum(s):
-             return {'0':0,'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9}
+             return {'0':0,'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9}[s]
         return reduce(lambda x,y:10*x+y,map(charToNum,s))
 string='5487'
 x=strToTnt(string)+10

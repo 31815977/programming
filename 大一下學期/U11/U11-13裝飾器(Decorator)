@@ -4,6 +4,7 @@ def upper(func):                #裝飾器
         newresult=oldresult.upper()
         print("函數名稱:",func.__name__)
         print("函數參數:",args)
+        return newresult
     return newFunc
 def greeting(string):           #問候函數
     return string
@@ -18,6 +19,7 @@ def upper(func):                #裝飾器
         newresult=oldresult.upper()
         print("函數名稱:",func.__name__)
         print("函數參數:",args)
+        return newresult
     return newFunc
 @upper                          #設定裝飾器
 def greeting(string):           #問候函數
@@ -58,7 +60,7 @@ def bold(func):                 #加粗體字串裝飾器
 @upper                          #設定大寫裝飾器
 def greeting(string):           #問候函數
     return string
-print(greeting('Hello iPhone'))
+print(greeting('Hello! iPhone'))
 
 print(sep='')
 
@@ -77,4 +79,4 @@ def bold(func):                 #加粗體字串裝飾器
 @bold                           #設定加粗體字串裝飾器
 def greeting(string):           #問候函數
     return string
-print(greeting('Hello iPhone'))
+print(greeting('Hello! iPhone'))

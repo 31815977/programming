@@ -1,21 +1,21 @@
 #11-8-1全域變數可以在所有函數使用
 def printmsg():
     '''函數本身沒有定義變數,只有執行列印全域變數功能'''
-    print("函數列印",msg)#列印全域變數
-msg="Global Variable"
-print("主程式列印",msg)
-printmsg()
+    print("函數列印",msg)   #列印全域變數
+msg="Global Variable"      #設定全域變數
+print("主程式列印",msg)     #列印全域變數
+printmsg()                 #呼叫函數
 
 print(sep="")
 
 #11-8-2區域變數與全域變數使用相同名稱
 def printmsg():
     '''函數本身沒有定義變數,只有執行列印全域變數功能'''
-    msg="Local Variable"
-    print("函數列印",msg)#列印全域變數
-msg="Global Variable"
-print("主程式列印",msg)
-printmsg()
+    msg="Local Variable"    #設定區域變數
+    print("函數列印",msg)    #列印區域變數
+msg="Global Variable"       #這是全域變數
+print("主程式列印",msg)      #列印全域變數
+printmsg()                  #呼叫函數
 
 print(sep="")
 
@@ -27,8 +27,8 @@ print(sep="")
 '''
 def printmsg():
     global msg
-    msg="Java"
-    print(f"函數列印:更改後:{msg}")#列印全域變數
+    msg="Java"                      #更改全域變數
+    print(f"函數列印:更改後:{msg}")
 msg="Python"
 print("主程式列印:更改前:{msg}")
 printmsg()
@@ -38,8 +38,8 @@ print(sep="")
 
 #11-8-4 locals()和globals()
 '''
-locals():可以用字典方式列出所有的區域變數名稱與內容
-globals():可以用字典方式列出所有的全域變數名稱與內容
+locals():可以用字典方式列出所有的"區域"變數名稱與內容
+globals():可以用字典方式列出所有的"全域"變數名稱與內容
 '''
 def printlocal():
     lang="Java"
