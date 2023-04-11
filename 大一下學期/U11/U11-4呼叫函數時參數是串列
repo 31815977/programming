@@ -12,12 +12,13 @@ product_msg(meembers)
 print(sep="")
 
 #11-4-2觀察傳遞一般變數與串列變數到函數的區別
+#主程式呼叫函數時傳遞整數變數
 def mydata(n):
     print("(1)副程式id(n)=:",id(n),"\t",n)
     n=5
     print("(2)副程式id(n)=:",id(n),"\t",n)
 x=1
-print("(3)主程式id(x)=:",id(x),"\t",x)
+print("(3)主程式id(x)=:",id(x),"\t",x)  #id和數值都變不一樣
 mydata(x)
 print("(4)主程式id(x)=:",id(x),"\t",x)
 '''
@@ -26,7 +27,7 @@ print("(4)主程式id(x)=:",id(x),"\t",x)
 如果主程式呼叫函數所傳遞的是串列變數，其實是將此串列變數的位址參照傳給函數，如果在函數中此串列變數位址參照的內容更改時，原先主程式變數內容會隨著改變。
 '''
 print(sep="")
-
+#主程式呼叫函數時傳遞串列變數
 def mydata(n):
     print(f"(1)副程式id(n)=: {id(n)} \t {n}")
     n[0]=5
@@ -55,8 +56,8 @@ def show_unserved_meal(unserved):
     print("===下列是尚未服務的餐點===")
     if not unserved:
         print("***沒有餐點***","\n")
-        for unserved_meal in unserved:
-            print(unserved_meal)
+    for unserved_meal in unserved:
+        print(unserved_meal)
 def show_served_meal(served):
     '''顯示已經服務的餐點'''
     print("===下列是已經服務的餐點===")
@@ -76,23 +77,8 @@ print("\n",'===廚房處理結束===',"\n")
 show_unserved_meal(unserved)            #列出未服務餐點
 show_served_meal(served)                #列出已服務餐點
 
-print(sep="")
+print("............................................")
 
-order_list=['大麥克','勁辣雞腿堡','麥克雞塊']#所點餐點
-served_list=[]                             #已服務餐點
-'''列出餐廳處理前的餐點內容'''
-show_unserved_meal(order_list)             #列出未服務餐點
-show_served_meal(served_list)              #列出已服務餐點
-'''餐廳服務過程'''
-kitchen(order_list,served_list)            #餐廳處理過程
-print("\n",'===廚房處理結束===',"\n")
-'''列出餐廳處理後的餐點內容'''
-show_unserved_meal(order_list)             #列出未服務餐點
-show_served_meal(served_list)              #列出已服務餐點
-
-print(sep="")
-
-#11-4-4使用副本傳遞串列
 def kitchen(unserved,served):
     '''將未服務的餐點轉為已經服務'''
     print("廚房處理顧客所點的餐點")
@@ -107,8 +93,8 @@ def show_unserved_meal(unserved):
     print("===下列是尚未服務的餐點===")
     if not unserved:
         print("***沒有餐點***","\n")
-        for unserved_meal in unserved:
-            print(unserved_meal)
+    for unserved_meal in unserved:
+        print(unserved_meal)
 def show_served_meal(served):
     '''顯示已經服務的餐點'''
     print("===下列是已經服務的餐點===")
@@ -122,10 +108,48 @@ served_list=[]                             #已服務餐點
 show_unserved_meal(order_list)             #列出未服務餐點
 show_served_meal(served_list)              #列出已服務餐點
 '''餐廳服務過程'''
-kitchen(order_list[:],served_list)            #餐廳處理過程
+kitchen(order_list,served_list)            #餐廳處理過程
 print("\n",'===廚房處理結束===',"\n")
 '''列出餐廳處理後的餐點內容'''
 show_unserved_meal(order_list)             #列出未服務餐點
+show_served_meal(served_list)              #列出已服務餐點
+
+print("................................................")
+
+#11-4-4使用副本傳遞串列
+def kitchen(unserved,served):
+    '''將未服務的餐點轉為已經服務'''
+    print("廚房處理顧客所點的餐點")
+    while unserved:
+        current_meal=unserved.pop()
+        '''模擬出餐點過程'''
+        print("菜單:",current_meal)
+        '''將已出餐點轉入已經服務串列'''
+        served.append(current_meal)
+def show_order_meal(unserved):
+    '''顯示尚未服務的餐點'''
+    print("===下列是所點的餐點===")
+    if not unserved:
+        print("***沒有餐點***","\n")
+    for unserved_meal in unserved:
+            print(unserved_meal)
+def show_served_meal(served):
+    '''顯示已經服務的餐點'''
+    print("===下列是已經服務的餐點===")
+    if not served:
+        print("***沒有餐點***","\n")
+    for served_meal in served:
+        print(served_meal)
+order_list=['大麥克','勁辣雞腿堡','麥克雞塊']#所點餐點
+served_list=[]                             #已服務餐點
+'''列出餐廳處理前的餐點內容'''
+show_order_meal(order_list)             #列出未服務餐點
+show_served_meal(served_list)              #列出已服務餐點
+'''餐廳服務過程'''
+kitchen(order_list[:],served_list)            #餐廳處理過程
+print("\n",'===廚房處理結束===',"\n")
+'''列出餐廳處理後的餐點內容'''
+show_order_meal(order_list)             #列出未服務餐點
 show_served_meal(served_list)              #列出已服務餐點
 '''
 由上述執行結果發現，原先儲存點餐的order_list串列經過kitchen()函數後，此串列的內容沒有改變
