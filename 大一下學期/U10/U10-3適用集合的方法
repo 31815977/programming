@@ -71,7 +71,7 @@ print("刪除後的集合:",A)
 
 print(sep="")
 
-#10-3-7 共同元素isdisjoint() 語法:ret_boolean=集合A.isdisjoint(集合B)
+#10-3-7 沒有共同元素isdisjoint() 語法:ret_boolean=集合A.isdisjoint(集合B)
 A={"a","b","c"}
 B={"c","d","e"}
 C={"f","g","h"}
@@ -104,7 +104,25 @@ print("B是C的父集合:",boolean)
 
 print(sep="")
 
-#10-3-10傳回集合的交集intersection_update() 語法:ret_value=A.intersection_update(*B) *B在這代表多個集合
+#10-3-10傳回集合的交集intersection_update() 語法:ret_value=A.intersection_update(*B) 
+#*B代表可以有1到多個集合
+A={"a","b","c","d"}
+B={"a","k","c"}
+c={"c","f","w"}
+ret_value=A.intersection_update(B)#A將是A和B的交集
+print(ret_value)
+print("A集合=",A)
+print("B集合=",B)
+ret_value=A.intersection_update(B,C)#A將是A和B和C的交集
+print(ret_value)
+'''不知為何"A集合="跑出set()空集合
+'''
+print("A集合=",A)
+print("B集合=",B)
+print("C集合=",C)
+
+print(sep="")
+
 #10-3-11 使用聯集更新集合內容update() 語法:集合名稱.update(集合名稱)
 car1={"Audi","Ford","Toyota"}
 car2={"Nissan","Toyota"}
@@ -120,5 +138,25 @@ print(sep="")
 
 #10-3-12 difference_update() 語法:集合A.difference_update(集合B)
 #將集合A和集合B內重複的元素刪除，結果存在A集合
+car1={"Audi","Ford","Toyota"}
+car2={"Nissan","Toyota"}
+print("執行update()前列出car1和car2內容")
+print("car1=",car1)
+print("car2=",car2)
+car1.difference_update(car2)
+print("執行update()後列出car1和car2內容")
+print("car1=",car1)
+print("car2=",car2)
+
+print(sep="")
 #10-3-13 symmetric_difference_update() 語法:集合A.symmetric_difference_update(集合B)
 #與10-2-4的對稱差集觀念一樣，但是只更改呼叫此方法的集合
+car1={"Audi","Ford","Toyota"}
+car2={"Nissan","Toyota"}
+print("執行update()前列出car1和car2內容")
+print("car1=",car1)
+print("car2=",car2)
+car1.symmetric_difference_update(car2)
+print("執行update()後列出car1和car2內容")
+print("car1=",car1)
+print("car2=",car2)
