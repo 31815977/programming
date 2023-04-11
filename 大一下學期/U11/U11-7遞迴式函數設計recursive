@@ -67,6 +67,6 @@ print(sys.getrecursionlimit())
 print(sep='')
 '''跑程式有錯誤
 import sys
-sys.getrecursionlimit(100)#sys.getrecursionlimit(x):可以設定最大遞迴次數,參數x就是遞迴次數
+print(sys.getrecursionlimit(100))#sys.getrecursionlimit(x):可以設定最大遞迴次數,參數x就是遞迴次數
 print(sys.getrecursionlimit())
 '''
