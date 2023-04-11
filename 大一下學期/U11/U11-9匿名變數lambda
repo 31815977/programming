@@ -14,13 +14,13 @@ def square(x):
 print(square(10))#輸出平方值
 
 print(sep="")
-'''跑程式有錯誤
+
 #定義lambda函數
-product=lambda x,y=x*y#含兩個參數的匿名函數應用,可以傳回參數的積(相乘的結果)
+product=lambda x,y:x*y#含兩個參數的匿名函數應用,可以傳回參數的積(相乘的結果)
 print(product(5,10))
 
 print(sep="")
-'''
+
 #11-9-2使用lambda匿名函數的理由
 def func(b):
     return lambda x:2*x+b
