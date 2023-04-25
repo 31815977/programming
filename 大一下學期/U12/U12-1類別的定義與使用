@@ -3,7 +3,9 @@
 語法:
 class Classname():#類別名稱第一個字母Python風格建議使用大寫
     statement1
-    ...
+    .
+    .
+    .
     statementn
 '''
 class Banks():
@@ -11,6 +13,9 @@ class Banks():
     bankname="Tipei Bank"
     def motto(self):
         return "以客為尊"
+'''
+此程式沒有輸出結果(正常)
+'''
 #12-1-2操作類別的屬性與方法
 '''
 object.類別的屬性
@@ -24,6 +29,9 @@ class Banks():
 userbank=Banks()
 print("目前服務銀行是",userbank.bankname)
 print("銀行服務理念是",userbank.motto())
+
+print(sep="")
+
 #12-1-3類別的建構方法
 #初始化方法:_init_()
 class Banks():
@@ -36,6 +44,8 @@ class Banks():
         return self.balance
 hungbank=Banks('hung',100)              #定義物件hungbank
 print(hungbank.name.title(),"存款餘額是",hungbank.get_balance())
+
+print(sep="")
 
 class Banks():
     '''定義銀行類別'''
@@ -58,6 +68,8 @@ hungbank.get_balance()                  #獲得存款餘額
 hungbank.withdraw_money(200)            #提款200元
 hungbank.get_balance()                  #獲得存款餘額
 
+print(sep="")
+
 hungbank=Banks("hung",100)              #定義物件hungbank
 johnbank=Banks("john",300)              #定義物件johnbank
 hungbank.get_balance()                  #獲得hung存款餘額
@@ -66,3 +78,26 @@ hungbank.save_money(100)                #hung存款100元
 johnbank.withdraw_money(150)            #john提款150元
 hungbank.get_balance()                  #獲得hung存款餘額
 johnbank.get_balance()                  #獲得john存款餘額
+
+print(sep="")
+
+#12-1-4屬性初始值的設定
+class Banks():
+    '''定義銀行類別'''
+    def __init__(self,uname):         #初始化方法
+        self.name=uname                 #設定存款者名字
+        self.balance=0                  #設定開戶金額是0
+        self.bankname="Taipei Bank"     #設定銀行名稱
+    def save_money(self,money):         #設計存款方法
+        self.balance+=money             #執行存款
+        print("存款",money,"完成")      #列印存款完成
+    def withdraw_money(self,money):     #設計提款方法
+        self.balance-=money             #執行提款
+        print("提款",money,"完成")       #列印提款完成
+    def get_balance(self):              #獲得存款餘額
+        print(self.name.title(),"目前餘額:",self.balance)
+hungbank=Banks('hung')                  #定義物件hungbank
+print("目前開戶銀行",hungbank.bankname)  #列出目前開戶銀行
+hungbank.get_balance()                  #獲得hung存款餘額
+hungbank.save_money(100)                #hung存款100
+hungbank.get_balance()                  #獲得hung存款餘額
