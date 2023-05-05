@@ -63,11 +63,16 @@ class Banks():
         print("提款",money,"完成")      #列印提款完成
     def get_balance(self):              #獲得存款餘額
         print(self.__name.title(),"目前餘額:",self.__balance)
-    def usa_to_taiwan(self,usa_d):
+    def usa_to_taiwan(self,usa_d):      #美金兌換台幣方式
         self.result=self.__cal_rate(usa_d)
         return self.result
-    def __cal_rate(self,usa_d):
+    def __cal_rate(self,usa_d):         #計算換匯這是私有方式
         return int(usa_d*self.__rate*(1-self.__service_charge))
-hungbank=Banks('hung')
+hungbank=Banks('hung')                  #定義物件hungbank
 usdallor=50
 print(usdallor,"美金可以兌換",hungbank.usa_to_taiwan(usdallor),"台幣")
+
+print(sep="")
+
+#破解私有方法
+print(hungbank._Banks__cal_rate(50))

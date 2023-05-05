@@ -1,0 +1,196 @@
+#程式碼結構
+'''
+class BaseClassName():                  #先定義基底類別
+    Base Class的內容
+class DerivedClassName(BaseClassName):  #再定義延伸類別
+    Derived Class的內容
+'''
+#12-3-1衍生類別繼承基底類別的實例應用
+class Father():
+    def hometown(self):
+        print("我住在台北")
+class Son(Father):
+    pass
+hung=Father()
+ivan=Son()
+hung.hometown()
+ivan.hometown()
+
+print(sep="")
+
+
+class Banks():
+    '''定義銀行類別'''
+    def __init__(self,uname):           #初始化方式
+        self.__name=uname               #設定私有存款者名字
+        self.__balance=0                #設定私有開戶金額是0
+        self.bankname="Taipei Bank"     #設定私有銀行名稱
+        self.__rate=30                  #預設美金與台幣換匯比例
+        self.__service_charge=0.01      #換匯的服務費
+    def save_money(self,money):         #設計存款方法
+        self.__balance+=money           #執行存款
+        print("存款",money,"完成")      #列印存款完成
+    def withdraw_money(self,money):     #設計提款方法
+        self.__balance-=money           #執行提款
+        print("提款",money,"完成")      #列印提款完成
+    def get_balance(self):              #獲得存款餘額
+        print(self.__name.title(),"目前餘額:",self.__balance)
+    def usa_to_taiwan(self,usa_d):      #美金兌換台幣方式
+        self.result=self.__cal_rate(usa_d)
+        return self.result
+    def __cal_rate(self,usa_d):         #計算換匯這是私有方式
+        return int(usa_d*self.__rate*(1-self.__service_charge))
+class Shilin_Banks(Banks):
+    #定義士林分行
+    pass
+hungbank=Shilin_Banks('hung')#定義物件hungbank
+hungbank.save_money(500)
+hungbank.get_balance()
+
+print(sep="")
+
+#12-3-2如何取得基底類別的私有屬性
+class Father():
+    def __init__(self):
+        self.__address="台北市羅斯福路"
+    def getaddr(self):
+        return self.__address
+class Son(Father):
+    pass
+hung=Father()
+ivan=Son()
+print("父類別:",hung.getaddr())
+print("子類別:",ivan.getaddr())
+
+print(sep="")
+"""(跑程式時有問題)
+class Banks():
+    '''定義銀行類別'''
+    def __init__(self,uname):           #初始化方式
+        self.__name=uname               #設定私有存款者名字
+        self.__balance=0                #設定私有開戶金額是0
+        self.bankname="Taipei Bank"     #設定私有銀行名稱
+        self.__rate=30                  #預設美金與台幣換匯比例
+        self.__service_charge=0.01      #換匯的服務費
+    def save_money(self,money):         #設計存款方法
+        self.__balance+=money           #執行存款
+        print("存款",money,"完成")      #列印存款完成
+    def withdraw_money(self,money):     #設計提款方法
+        self.__balance-=money           #執行提款
+        print("提款",money,"完成")      #列印提款完成
+    def get_balance(self):              #獲得存款餘額
+        print(self.__name.title(),"目前餘額:",self.__balance)
+    def usa_to_taiwan(self,usa_d):      #美金兌換台幣方式
+        self.result=self.__cal_rate(usa_d)
+        return self.result
+    def __cal_rate(self,usa_d):         #計算換匯這是私有方式
+        return int(usa_d*self.__rate*(1-self.__service_charge))
+    def bank_title(self):               #獲得銀行名稱
+        return self.__bankname
+class Shilin_Banks(Banks):
+    #定義士林分行
+    pass
+hungbank=Shilin_Banks("hung")           #定義物件hungbank
+print("我的存款銀行是:",hungbank.bank_title())
+
+print(sep="")
+
+"""
+#12-3-3衍生類別與基底類別有相同名稱的屬性
+class Person():
+    def __init__(self,name):
+        self.name=name
+class LawerPerson(Person):
+    def __init__(self, name):
+        self.name=name+"律師"
+hung=Person("洪錦魁")
+lawer=LawerPerson("洪錦魁")
+print(hung.name)
+print(lawer.name)
+
+print(sep="")
+
+class Banks():
+    '''定義銀行類別'''
+    def __init__(self,uname):           #初始化方式
+        self.__name=uname               #設定私有存款者名字
+        self.__balance=0                #設定私有開戶金額是0
+        self.bankname="Taipei Bank"     #設定私有銀行名稱
+        self.__rate=30                  #預設美金與台幣換匯比例
+        self.__service_charge=0.01      #換匯的服務費
+    def save_money(self,money):         #設計存款方法
+        self.__balance+=money           #執行存款
+        print("存款",money,"完成")      #列印存款完成
+    def withdraw_money(self,money):     #設計提款方法
+        self.__balance-=money           #執行提款
+        print("提款",money,"完成")      #列印提款完成
+    def get_balance(self):              #獲得存款餘額
+        print(self.__name.title(),"目前餘額:",self.__balance)
+    def usa_to_taiwan(self,usa_d):      #美金兌換台幣方式
+        self.result=self.__cal_rate(usa_d)
+        return self.result
+    def __cal_rate(self,usa_d):         #計算換匯這是私有方式
+        return int(usa_d*self.__rate*(1-self.__service_charge))
+    def bank_title(self):               #獲得銀行名稱
+        return self.__bankname
+class Shilin_Banks(Banks):
+    #定義士林分行
+    def __init__(self, uname):
+        self.bankname="Taipei Bank-Shilin Branch"#定義分行名稱
+jamesbank=Banks('James')
+print("James's banks=",jamesbank.bankname)        
+hungbank=Shilin_Banks("hung")           #定義物件hungbank
+print("Hung's banks=",hungbank.bankname)
+
+print(sep="")
+
+#12-3-4衍生類別與基底類別有相同名稱的方法
+class Person():
+    def job(self):
+        print("我是老師")
+class LawerPerson(Person):
+    def job(self):
+        print("我是律師")
+hung=Person()
+ivan=LawerPerson()
+hung.job()
+ivan.job()
+
+print(sep="")
+"""(跑程式時有問題)
+class Banks():
+    '''定義銀行類別'''
+    def __init__(self,uname):           #初始化方式
+        self.__name=uname               #設定私有存款者名字
+        self.__balance=0                #設定私有開戶金額是0
+        self.bankname="Taipei Bank"     #設定私有銀行名稱
+        self.__rate=30                  #預設美金與台幣換匯比例
+        self.__service_charge=0.01      #換匯的服務費
+    def save_money(self,money):         #設計存款方法
+        self.__balance+=money           #執行存款
+        print("存款",money,"完成")      #列印存款完成
+    def withdraw_money(self,money):     #設計提款方法
+        self.__balance-=money           #執行提款
+        print("提款",money,"完成")      #列印提款完成
+    def get_balance(self):              #獲得存款餘額
+        print(self.__name.title(),"目前餘額:",self.__balance)
+    def usa_to_taiwan(self,usa_d):      #美金兌換台幣方式
+        self.result=self.__cal_rate(usa_d)
+        return self.result
+    def __cal_rate(self,usa_d):         #計算換匯這是私有方式
+        return int(usa_d*self.__rate*(1-self.__service_charge))
+    def bank_title(self):               #獲得銀行名稱
+        return self.__bankname
+class Shilin_Banks(Banks):
+    #定義士林分行
+    def __init__(self, uname):
+        self.bankname="Taipei Bank-Shilin Branch"#定義分行名稱
+    def bank_title(self):
+        return self.bankname
+jamesbank=Banks('James')
+print("James's banks=",jamesbank.bank_title())        
+hungbank=Shilin_Banks("hung")           #定義物件hungbank
+print("Hung's banks=",hungbank.bank_title())
+
+print(sep="")
+"""
