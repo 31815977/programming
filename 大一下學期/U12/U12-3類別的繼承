@@ -294,3 +294,12 @@ class Ivan(Father):                     #父類別是Father
               "\nIra資產",Ira().iramoney)#注意寫法
 ivan=Ivan()
 ivan.get_money()                        #取得資產明細
+
+print(spe="")
+
+#12-3-9認識Python類別方法的self參數
+class Person():
+    def interest(self):
+        print("Smiling is my interest")
+hung=Person()
+hung.interest()

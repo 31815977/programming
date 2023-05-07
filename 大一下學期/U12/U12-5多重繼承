@@ -1,0 +1,76 @@
+#12-5-1基本觀念
+class Grandfather():
+    """定義祖父類別"""
+    def action1(self):
+        print("Grandfather")
+class Father(Grandfather):
+    """定義祖父類別"""
+    def action2(self):  #定義action2()
+        print("Father")
+class Uncle(Grandfather):
+    """定義叔父類別"""
+    def action2(self):  #定義action2()
+        print("Uncle")
+class Ivan(Father,Uncle):
+    """定義Ivan類別"""
+    def action3(self):
+        print("Ivan")
+ivan=Ivan()
+ivan.action3()                        #順序Ivan
+ivan.action2()                        #順序Ivan->Father
+ivan.action1()                        #順序Ivan->Father->Grandfather
+
+print(sep="")
+
+class Grandfather():
+    """定義祖父類別"""
+    def action1(self):
+        print("Grandfather")
+class Father(Grandfather):
+    """定義祖父類別"""
+    def action3(self):  #定義action3()
+        print("Father")
+class Uncle(Grandfather):
+    """定義叔父類別"""
+    def action2(self):  #定義action2()
+        print("Uncle")
+class Ivan(Father,Uncle):
+    """定義Ivan類別"""
+    def action4(self):
+        print("Ivan")
+ivan=Ivan()
+ivan.action4()                        #順序Ivan
+ivan.action3()                        #順序Ivan->Father
+ivan.action2()                        #順序Ivan->Father->Uncle
+ivan.action1()                        #順序Ivan->Father->Uncle->Grandfather
+
+print(sep="")
+
+#12-5-2 super()應用在多重繼承的問題
+class A():
+    def __init__(self):
+        print("class A")
+class B():
+    def __init__(self):
+        print("class B")
+class C(A,B):
+    def __init__(self):
+        super().__init__()
+        print("class C")
+x=C()
+
+print(sep="")
+
+class A():
+    def __init__(self):
+        super().__init__()
+        print("class A")
+class B():
+    def __init__(self):
+        super().__init__()
+        print("class B")
+class C(A,B):
+    def __init__(self):
+        super().__init__()
+        print("class C")
+x=C()
