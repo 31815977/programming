@@ -194,3 +194,103 @@ print("Hung's banks=",hungbank.bank_title())
 
 print(sep="")
 """
+#12-3-5衍生類別引用基底類別的方法
+class Animals():
+    """Animals類別，這是基底類別"""
+    def __init__(self,animal_name,animal_age):
+        self.name=animal_name   #紀錄動物名稱
+        self.age=animal_age     #記錄動物年齡
+    def run(self):              #輸出動物is running
+        print(self.name.title(),"is running")
+class Dogs(Animals):
+    """Dogs類別,這是Animal的衍生類別"""
+    def __init__(self,dog_name,dog_age):
+        super().__init__("my pet"+dog_name.title(),dog_age)
+mycat=Animals("lucy",5)         #建立Animals物件以及測試
+print(mycat.name.title(),"is",mycat.age,"years old.")
+mycat.run()
+mydog=Dogs("lily",6)            #建立Dogs物件以及測試
+print(mydog.name.title(),"is",mydog.age,"years old.")
+mydog.run()
+
+print(sep="")
+
+#12-3-6衍生類別有自己的想法
+class Animals():
+    """Animals類別，這是基底類別"""
+    def __init__(self,animal_name,animal_age):
+        self.name=animal_name   #紀錄動物名稱
+        self.age=animal_age     #記錄動物年齡
+    def run(self):              #輸出動物is running
+        print(self.name.title(),"is running")
+class Dogs(Animals):
+    """Dogs類別,這是Animal的衍生類別"""
+    def __init__(self,dog_name,dog_age):
+        super().__init__("my pet"+dog_name.title(),dog_age)
+    def sleeping(self):
+        print("My pet","is sleeping")
+mycat=Animals("lucy",5)         #建立Animals物件以及測試
+print(mycat.name.title(),"is",mycat.age,"years old.")
+mycat.run()
+mydog=Dogs("lily",6)            #建立Dogs物件以及測試
+print(mydog.name.title(),"is",mydog.age,"years old.")
+mydog.run()
+mydog.sleeping()
+
+print(sep="")
+
+#12-3-7三代同堂的類別與取得基底類別的屬性super()
+#super().__init__:將父類別的屬性複製
+class Grandfather():
+    """定義祖父的資產"""
+    def __init__(self):
+        self.grandfathermoney=10000
+    def get_info1(self):
+        print("Grandfather's information")
+class Father(Grandfather):              #父類別是Grandfather
+    """定義父親的資產"""
+    def __init__(self):
+        self.fathermoney=8000
+        super().__init__()
+    def get_info2(self):                #父類別是Father
+        print("Father's information")
+class Ivan(Father):
+    """定義Ivan的資產"""
+    def __init__(self):
+        self.ivanmoney=3000
+        super().__init__()
+    def get_info3(self):
+        print("Ivan's information")
+    def get_money(self):                #取得資產明細
+        print("\nIvan資產:",self.ivanmoney,
+              "\n父親資產:",self.fathermoney,
+              "\n祖父資產",self.grandfathermoney)
+ivan=Ivan()
+ivan.get_info3()                        #從Ivan中獲得
+ivan.get_info2()                        #流程Ivan->Father
+ivan.get_info1()                        #流程Ivan->Father->Grandfather
+ivan.get_money()                        #取得資產明細
+
+print(sep="")
+
+#12-3-8兄弟類別屬性的取得
+class Father():
+    """定義父親的資產"""
+    def __init__(self):
+        self.fathermoney=10000
+class Ira(Father):                      #父類別是Father
+    """定義Ira的資產"""
+    def __init__(self):
+        self.iramoney=8000
+        super().__init__()
+class Ivan(Father):                     #父類別是Father
+    """定義Ivan的資產"""
+    def __init__(self):
+        self.ivanmoney=3000
+        super().__init__()
+    def get_money(self):                #取得資產明細
+        print("Ivan資產:",self.ivanmoney,
+              "\n父親資產:",self.fathermoney,
+              "\nIra資產",Ira().iramoney)#注意寫法
+ivan=Ivan()
+ivan.get_money()                        #取得資產明細
