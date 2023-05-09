@@ -1,0 +1,76 @@
+'''
+#12-8-1__str__()方法
+class Name:
+        def __init__(self,name):
+                self.name=name
+a=Name("Hung")
+print(a)
+
+print(sep="")
+
+class Name:
+        def __init__(self,name):
+                self.name=name
+        def __str__(self):
+                return f"{self.name}"
+a=Name("Hung")
+print(a)
+
+print(sep="")
+
+#12-8-2__repr__()方法
+class Name():
+        def __init__(self,name):
+                self.name=name
+        def __str__(self):
+                return f"{self.name}"
+        __repr__=__str__
+a=Name("Hung")
+print(a)
+
+print(sep="")
+
+#12-8-3__iter__方法
+class Fib():
+        def __init__(self,max):
+                self.max=max
+        def __iter__(self):
+                self.a=0
+                self.b=1
+                return self
+        def __next__(self):
+                fib=self.a
+                if fib>self.max:
+                        raise StopIteration
+                self.a,self.b=self.b,self.a+self.b
+                return fib
+for i in Fib(100):
+        print(i)
+
+print(sep="")
+'''
+#12-8-4__eq__()方法
+class City():
+        def __init__(self,name):
+                self.name=name
+        def equals(self,city2):
+                return self.name.upper()==city2.name.upper()
+one=City("Taipei")
+two=City("taipei")
+three=City("myhome")
+print(one.equals(two))
+print(one.equals(three))
+
+print(sep="")
+
+class City():
+        def __init__(self,name):
+                self.name=name
+        def __eq__(self,city2):
+                return self.name.upper()==city2.name.upper()
+one=City("Taipei")
+two=City("taipei")
+three=City("myhome")
+print(one==two)
+print(one==three) 
+'''

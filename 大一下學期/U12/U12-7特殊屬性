@@ -1,0 +1,55 @@
+#12-7-1文件字串__doc__
+def getMax(x,y):
+    """文件字串實例
+    建議x,y是整數
+    這個函數將傳回最大值
+    """
+    if int(x)>int(y):
+        return x
+    else:
+        return y
+print(getMax(2,3))      #列印最大值
+print(getMax.__doc__)   #列印文字字串docstring
+
+print(sep="")
+
+class Myclass:
+    """文件字串實例
+    Myclass類別的應用"""
+    def __init__(self,x):
+        self.x=x
+    def printMe(self):
+        """文字檔字串實例
+        Myclass類別內printMe方法的應用"""
+        print("Hi",self.x)
+data=Myclass(100)
+data.printMe()
+print(data.__doc__)             #列印Myclass文件字串docstring
+print(data.printMe.__doc__)     #列印printMe文件字串docstring
+
+print(sep="")
+
+#12-7-2__name__屬性
+'''常見:
+if__name__=="__main__":
+        doSomthing()
+
+'''
+print("ch12_24.py module name=",__name__)
+
+print(sep="")
+
+def myFun():
+    print("__name__==__main__")
+if __name__=="__main__":
+    myFun()
+
+print(sep="")
+"""跑程式有錯誤
+import ch12_24
+
+print(sep="")
+"""
+"""跑程式有錯誤
+import ch12_25
+"""
