@@ -49,13 +49,13 @@ hungbank.get_balance()
 
 print(sep="")
 
-#12-3-2如何取得基底類別的私有屬性
-class Father():
+#12-3-2如何取得基底類別的私有屬性(助教課先略過)
+class Father():                         #先定義基底類別(父類別)(助教課內容)
     def __init__(self):
         self.__address="台北市羅斯福路"
-    def getaddr(self):
+    def getaddr(self):                  #在定義衍生類別(子類別)(助教課內容)
         return self.__address
-class Son(Father):
+class Son(Father):                      #父類別的內容都被子類別繼承並定義(助教課內容)
     pass
 hung=Father()
 ivan=Son()
