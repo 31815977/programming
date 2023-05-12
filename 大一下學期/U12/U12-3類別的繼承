@@ -24,7 +24,7 @@ class Banks():
     def __init__(self,uname):           #初始化方式
         self.__name=uname               #設定私有存款者名字
         self.__balance=0                #設定私有開戶金額是0
-        self.bankname="Taipei Bank"     #設定私有銀行名稱
+        self.__bankname="Taipei Bank"     #設定私有銀行名稱
         self.__rate=30                  #預設美金與台幣換匯比例
         self.__service_charge=0.01      #換匯的服務費
     def save_money(self,money):         #設計存款方法
@@ -63,13 +63,13 @@ print("父類別:",hung.getaddr())
 print("子類別:",ivan.getaddr())
 
 print(sep="")
-"""(跑程式時有問題)
+
 class Banks():
     '''定義銀行類別'''
     def __init__(self,uname):           #初始化方式
         self.__name=uname               #設定私有存款者名字
         self.__balance=0                #設定私有開戶金額是0
-        self.bankname="Taipei Bank"     #設定私有銀行名稱
+        self.__bankname="Taipei Bank"     #設定私有銀行名稱
         self.__rate=30                  #預設美金與台幣換匯比例
         self.__service_charge=0.01      #換匯的服務費
     def save_money(self,money):         #設計存款方法
@@ -95,7 +95,7 @@ print("我的存款銀行是:",hungbank.bank_title())
 
 print(sep="")
 
-"""
+
 #12-3-3衍生類別與基底類別有相同名稱的屬性
 class Person():
     def __init__(self,name):
@@ -157,13 +157,13 @@ hung.job()
 ivan.job()
 
 print(sep="")
-"""(跑程式時有問題)
+
 class Banks():
     '''定義銀行類別'''
     def __init__(self,uname):           #初始化方式
         self.__name=uname               #設定私有存款者名字
         self.__balance=0                #設定私有開戶金額是0
-        self.bankname="Taipei Bank"     #設定私有銀行名稱
+        self.__bankname="Taipei Bank"     #設定私有銀行名稱
         self.__rate=30                  #預設美金與台幣換匯比例
         self.__service_charge=0.01      #換匯的服務費
     def save_money(self,money):         #設計存款方法
@@ -193,7 +193,7 @@ hungbank=Shilin_Banks("hung")           #定義物件hungbank
 print("Hung's banks=",hungbank.bank_title())
 
 print(sep="")
-"""
+
 #12-3-5衍生類別引用基底類別的方法
 class Animals():
     """Animals類別，這是基底類別"""
