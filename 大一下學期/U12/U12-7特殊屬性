@@ -35,21 +35,23 @@ if__name__=="__main__":
         doSomthing()
 
 '''
+#ch12_24.py
 print("ch12_24.py module name=",__name__)
 
 print(sep="")
 
+#ch12_25.py
 def myFun():
     print("__name__==__main__")
 if __name__=="__main__":
     myFun()
 
 print(sep="")
-
+'''跑程式有錯誤
 import ch12_24
 
 print(sep="")
-
-"""跑程式有錯誤
+'''
+'''跑程式有錯誤
 import ch12_25
-"""
+'''
