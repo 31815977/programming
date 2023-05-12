@@ -45,11 +45,11 @@ if __name__=="__main__":
     myFun()
 
 print(sep="")
-"""跑程式有錯誤
+
 import ch12_24
 
 print(sep="")
-"""
+
 """跑程式有錯誤
 import ch12_25
 """
