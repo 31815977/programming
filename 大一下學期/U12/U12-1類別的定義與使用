@@ -1,7 +1,7 @@
 #12-1-1定義類別
 '''
 語法:
-class Classname():#類別名稱第一個字母Python風格建議使用大寫
+class Classname():#類別名稱第一個字母Python風格建議使用大寫(但沒有一定非大寫不可),
     statement1
     .
     .
@@ -10,11 +10,19 @@ class Classname():#類別名稱第一個字母Python風格建議使用大寫
 '''
 class Banks():
     '''定義銀行類別'''
-    bankname="Tipei Bank"
-    def motto(self):
+    bankname="Tipei Bank"   #定義屬性(寫在類別定義下，不分不同物件)
+    def motto(self):        #定義方法(寫法與函數相似)
         return "以客為尊"
 '''
 此程式沒有輸出結果(正常)
+'''
+#助教課內容
+'''
+userbank=Banks()    #定義物件userbank   #跟 calss Banks()的Banks是不一樣的
+print("目前銀行是:",userbank.bankname)
+print("銀行服務理念是:",userbank.motto())
+
+print(type(userbank))
 '''
 #12-1-2操作類別的屬性與方法
 '''

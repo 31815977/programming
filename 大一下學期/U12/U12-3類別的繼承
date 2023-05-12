@@ -295,7 +295,7 @@ class Ivan(Father):                     #父類別是Father
 ivan=Ivan()
 ivan.get_money()                        #取得資產明細
 
-print(spe="")
+print(sep="")
 
 #12-3-9認識Python類別方法的self參數
 class Person():
