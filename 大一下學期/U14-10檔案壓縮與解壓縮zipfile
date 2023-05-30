@@ -1,0 +1,31 @@
+# ch14_29.py
+import zipfile
+import glob, os
+
+fileZip = zipfile.ZipFile('out29.zip', 'w')
+for name in glob.glob('zipdir29/*'):        # 遍歷zipdir29目錄
+    fileZip.write(name, os.path.basename(name), zipfile.ZIP_DEFLATED)
+    
+fileZip.close()
+
+print(sep="")
+
+# ch14_30.py
+import zipfile
+
+listZipInfo = zipfile.ZipFile('out29.zip', 'r')
+print(listZipInfo.namelist())       # 以列表列出所有壓縮檔案
+print("\n")
+for info in listZipInfo.infolist():
+    print(info.filename, info.file_size, info.compress_size)
+
+print(sep="")
+
+# ch14_31.py
+import zipfile
+
+fileUnZip = zipfile.ZipFile('out29.zip')
+fileUnZip.extractall('out31')
+fileUnZip.close()
+
+print(sep="")
