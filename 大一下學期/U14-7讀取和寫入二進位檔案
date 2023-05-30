@@ -1,0 +1,35 @@
+# ch14_24.py
+src = 'hung.jpg'
+dst = 'hung1.jpg'
+tmp = ''
+
+with open(src, 'rb') as file_rd:
+    tmp = file_rd.read()
+    with open(dst, 'wb') as file_wr:
+        file_wr.write(tmp)
+
+print(sep="")
+
+# ch14_25.py
+dst = 'bdata'
+bytedata = bytes(range(0,256))
+with open(dst, 'wb') as file_dst:
+    file_dst.write(bytedata)
+
+print(sep="")
+
+# ch14_26.py
+src = 'bdata'
+
+with open(src, 'rb') as file_src:
+    print("目前位移 : ", file_src.tell())
+    file_src.seek(10)
+    print("目前位移 : ", file_src.tell())
+    data = file_src.read()
+    print("目前內容 : ", data[0])
+    file_src.seek(255)
+    print("目前位移 : ", file_src.tell())
+    data = file_src.read()
+    print("目前內容 : ", data[0])
+    
+print(sep="")
