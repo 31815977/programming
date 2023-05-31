@@ -63,7 +63,7 @@ chunk=100
 msg=''
 with open(fn,'r',encoding="UTF-8") as f0bj:
     while True:
-        txt=f0bj.read(chunk)
+        txt=f0bj.read(chunk)# 一次讀取chunk數量
         if not txt:
             break
         msg+=txt
