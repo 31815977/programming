@@ -19,7 +19,7 @@ print("(2)------------------------------------------")
 fn = 'data14_10.txt'        # 設定欲開啟的檔案
 with open(fn, 'r', encoding='UTF-8') as fObj:    
     data = fObj.read()      # 讀取檔案到變數data
-    print(data.rstrip())    # 輸出變數data,同時刪除末端字元
+    print(data.rstrip())    # 輸出變數data,同時刪除末端空白字元
 
 print("(3)------------------------------------------")
 
@@ -35,14 +35,14 @@ print("(4)------------------------------------------")
 fn = 'data14_10.txt'            # 設定欲開啟的檔案
 with open(fn, 'r', encoding='UTF-8') as fObj:    
     for line in fObj:           # 相當於逐列讀取
-        print(line.rstrip())    # 輸出line,同時刪除末端字元
+        print(line.rstrip())    # 輸出line,同時刪除末端空白字元
 
 print("(5)------------------------------------------")
 
 # ch14_15.py
 fn = 'data14_15.txt'         # 設定欲開啟的檔案
 with open(fn, 'r', encoding='UTF-8') as fObj:    
-    mylist = fObj.readlines()
+    mylist = fObj.readlines()#一次讀取全部txt,內部是每次讀一列
 print(mylist)   
 
 print("(6)------------------------------------------")
@@ -58,7 +58,7 @@ for line in mylist:
 print("(7)------------------------------------------")
 
 # ch14_17.py
-fn = 'data14_15.txt'         # 設定欲開啟的檔案
+fn = 'sse.txt'         # 設定欲開啟的檔案
 chunk=100
 msg=''
 with open(fn,'r',encoding="UTF-8") as f0bj:
