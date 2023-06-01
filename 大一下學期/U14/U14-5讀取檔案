@@ -1,0 +1,72 @@
+# ch14_10.py
+fn = 'data14_10.txt'    # 設定欲開啟的檔案
+fObj = open(fn, 'r', encoding='UTF-8')    
+data = fObj.read()      # 讀取檔案到變數data
+fObj.close()            # 關閉檔案物件
+print(data)             # 輸出變數data相當於輸出檔案
+
+print("(1)------------------------------------------")
+
+# ch14_11.py
+fn = 'data14_10.txt'        # 設定欲開啟的檔案
+with open(fn, 'r', encoding='UTF-8') as fObj:    
+    data = fObj.read()      # 讀取檔案到變數data
+    print(data)             # 輸出變數data
+
+print("(2)------------------------------------------")
+
+# ch14_12.py
+fn = 'data14_10.txt'        # 設定欲開啟的檔案
+with open(fn, 'r', encoding='UTF-8') as fObj:    
+    data = fObj.read()      # 讀取檔案到變數data
+    print(data.rstrip())    # 輸出變數data,同時刪除末端空白字元
+
+print("(3)------------------------------------------")
+
+# ch14_13.py
+fn = 'data14_10.txt'        # 設定欲開啟的檔案
+with open(fn, 'r', encoding='UTF-8') as fObj:    
+    for line in fObj:       # 相當於逐列讀取
+        print(line)         # 輸出line
+
+print("(4)------------------------------------------")
+
+# ch14_14.py
+fn = 'data14_10.txt'            # 設定欲開啟的檔案
+with open(fn, 'r', encoding='UTF-8') as fObj:    
+    for line in fObj:           # 相當於逐列讀取
+        print(line.rstrip())    # 輸出line,同時刪除末端空白字元
+
+print("(5)------------------------------------------")
+
+# ch14_15.py
+fn = 'data14_15.txt'         # 設定欲開啟的檔案
+with open(fn, 'r', encoding='UTF-8') as fObj:    
+    mylist = fObj.readlines()#一次讀取全部txt,內部是每次讀一列
+print(mylist)   
+
+print("(6)------------------------------------------")
+
+# ch14_16.py
+fn = 'data14_15.txt'        # 設定欲開啟的檔案
+with open(fn, 'r', encoding='UTF-8') as fObj:    
+    mylist = fObj.readlines()
+
+for line in mylist:
+    print(line.rstrip())             # 列印串列
+
+print("(7)------------------------------------------")
+
+# ch14_17.py
+fn = 'sse.txt'         # 設定欲開啟的檔案
+chunk=100
+msg=''
+with open(fn,'r',encoding="UTF-8") as f0bj:
+    while True:
+        txt=f0bj.read(chunk)# 一次讀取chunk數量
+        if not txt:
+            break
+        msg+=txt
+print(msg)
+
+print(sep="")
