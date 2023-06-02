@@ -31,9 +31,5 @@ with open(src, 'rb') as file_src:
     print("目前位移 : ", file_src.tell())
     data = file_src.read()
     print("目前內容 : ", data[0])
-    
-<<<<<<< HEAD
+
 print(sep="")
-=======
-print(sep="")
->>>>>>> 3e57cd079d2cc5b2cb28fd8f4a3f5ba1db9cf18e
