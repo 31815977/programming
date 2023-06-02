@@ -1,0 +1,52 @@
+# ch14_4.py
+import os
+
+print(os.path.abspath('.'))             # 列出目前目錄的絕對路徑
+print(os.path.abspath('..'))            # 列出上一層目錄的絕對路徑
+print(os.path.abspath('ch14_4.py'))     # 列出檔案的絕對路徑
+
+print(sep="")
+
+# ch14_5.py
+import os
+
+print(os.path.relpath('D:\\'))              # 目前目錄至D:\的相對路徑
+print(os.path.relpath('D:\\Python\\ch13'))  # 目前目錄至特定path的相對路徑
+print(os.path.relpath('D:\\', 'ch14_5.py')) # 目前檔案至D:\的相對路徑
+
+print(sep="")
+
+# ch14_6.py
+import os
+
+mydir = 'test'
+# 如果mydir不存在就建立此資料夾
+if os.path.exists(mydir):
+    print(f"{mydir} 已經存在")
+else:
+    os.mkdir(mydir)
+    print(f"建立 {mydir} 資料夾成功")
+
+print(sep="")
+
+# ch14_7.py
+import os
+
+mydir = 'test'
+# 如果mydir存在就刪除此資料夾
+if os.path.exists(mydir):
+    os.rmdir(mydir)
+    print(f"刪除 {mydir} 資料夾成功")
+else:
+    print(f"{mydir} 資料夾不存在")
+
+print(sep="")
+
+# ch14_8.py
+import os
+
+print(os.path.join('D:\\','Python','ch14','ch14_8.py')) # 4個參數
+print(os.path.join('D:\\Python','ch14','ch14_8.py'))    # 3個參數
+print(os.path.join('D:\\Python\\ch14','ch14_8.py'))     # 2個參數
+
+print(sep="")

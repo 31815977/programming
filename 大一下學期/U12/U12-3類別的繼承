@@ -303,3 +303,5 @@ class Person():
         print("Smiling is my interest")
 hung=Person()
 hung.interest()
+#等同使用
+Person.interest(hung)

@@ -1,0 +1,363 @@
+# -*- coding: utf-8 -*-
+
+'''載入模組  import'''
+
+'''對應系統模組 os Operating System'''
+import os
+
+dir(os)
+
+print(os.getcwd())              # 列出目前工作目錄
+#os.chdir("C:\\Users\\MATH\\Desktop")
+
+print(os.listdir("C:\\"))
+print(os.listdir("."))      # 這代表目前工作目錄
+#如同
+print(os.listdir(os.getcwd())) 
+
+
+for dirName, sub_dirNames, fileNames in os.walk('oswalk'): #瀏覽目錄，依照目錄相關資訊列印
+    print("目前工作目錄名稱:   ", dirName)          #當前目錄名稱
+    print("目前子目錄名稱串列: ", sub_dirNames)      #具有資料夾
+    print("目前檔案名稱串列:   ", fileNames, "\n")  #具有檔案
+
+
+print(os.path.abspath('.'))             # 列出目前目錄的絕對路徑
+print(os.path.abspath('..'))            # 列出上一層目錄的絕對路徑
+print(os.path.abspath('20230526_ch14.py'))     # 列出檔案的絕對路徑
+
+
+'''查詢與建立、刪除資料夾'''
+mydir = 'test'
+
+os.path.exists(mydir)
+
+os.mkdir(mydir)
+
+os.path.exists(mydir)
+
+os.rmdir(mydir)
+
+#PS 查詢檔案是否存在
+os.path.isfile("20230526_ch14.py")
+
+# ch14_9 取得檔案目錄位置與檔案大小
+import os
+import glob #此模組有點像是作業系統視窗功能與查詢
+
+print("方法1:列出工作目錄的所有檔案與大小")
+for file in glob.glob('*.*'):
+    print(f"{file} : {os.path.getsize(file)} bytes")
+    
+print("方法2:列出目前工作目錄的特定檔案類型")
+for file in glob.glob('*.py'):
+    print(file)
+    
+print("方法3:列出目前工作目錄的特定檔名開頭檔案")
+for file in glob.glob('20230526*.*'):
+    print(file)
+
+
+'''14-6 寫入檔案 (輸出檔案)'''
+#檔案類別介紹
+
+"""
+fileobject
+    成為檔案物件的物件名稱(可自行決定物件名稱)，
+    執行open後此物件可以視為程式對作業系統檔案管理的窗口。
+open
+    開檔指令，讀取或寫入(各種對系統檔案管理讀寫模式)，
+    回傳的就是檔案物件(指定某某成為這個檔案物件)。
+"""
+    #   filename='Todayfile.txt'
+        #   檔案在作業系統檔案管理下的命名，檔名包含副檔名txt都只是命名，
+        #   並不會左右寫入內容為何(並不會以pdf副檔名存取會就會變成PDF檔的格式內容)
+        #   此部分可以是絕對路徑或是檔案名稱
+        #   絕對路徑：指的便是作業系統的檔案路徑(含檔名)
+        #   檔案名稱：則是直接把目前的工作目錄當作該檔案的目錄根
+        #   例如目前的工作目錄為'C:\\Users\\Administrator\\Desktop'
+        #   則filename='C:\\Users\\Administrator\\Desktop\\Todayfile.txt'
+        #   等同filename='Todayfile.txt'
+    #   mode="w"
+        #   檔案存取模式，也就是這個檔案物件(窗口)的運作方式
+        #   ▶ ’r’ : 這是預設, 開啟檔案供讀取(read)。
+        #   ▶ ’w’ : 開啟檔案供寫入，如果原先檔案有內容將被覆蓋。
+        #   ▶ ’a’ : 開啟檔案供寫入, 如果原先檔案有內容, 寫入資料將附加在後面。
+        #   ▶ ’x’ : 開啟一個新檔案供寫入, 開啟的檔案若已經存在, 則會產生錯誤。
+        #   ▶ ’rb’ 'wb' : 開啟、寫入二進位檔案模式。
+    #   encoding=None
+        #   檔案讀寫編碼，如果是二元讀取寫入，此行便須忽略
+
+fileobject.close()  #關閉窗口
+'''
+一旦完成存取動作就必須對該檔案物件執行關檔，對檔案系統unlock。
+將存取權限歸還給作業系統或是開放給其他軟體存取
+簡而言之就是關閉窗口，把窗口還給作業系統，或是留給其他軟體。
+'''
+
+file1 = open('Todayfile.txt' , mode='w' )
+#取代先前資料
+print ('Testing for output to Todayfile.txt', file=file1)
+file1.close( )
+
+file2 = open('Todayfile.txt', mode='a' )
+#附加資料在後
+print('Testing for output2 to Todayfile.txt with mode is "a"', file=file2)
+file2.close( )
+
+'''
+寫入檔案方式除了使用print指定輸出源(窗口)之外，
+也可以使用write，但換行時請記得加\n等，
+搭配list使用writelines可以同時寫入多個元素，也可以用迴圈的方式逐列寫入(如同周老師上課的方式)
+'''
+file3 = open('Todayfile.txt', mode='a' )
+file3.write('Testing for output3 to Todayfile.txt with function write')
+file3.close( )
+
+file4 = open('Todayfile.txt', mode='a' )
+file4.write('-----follow end of output3 and add new line\nThis is new line\n')
+file4.close( )
+
+file5 = open('Todayfile.txt', mode='a' )
+file5.writelines([str(x)+"\n" for x in range(5)])
+file5.close( )
+
+'''
+使用with open的開檔方式
+避免開檔錯誤忽略close檔案而造成未完成unlock
+適用於檔案一口氣可以讀寫完成的程式寫法。
+若是程式結構寫入或是讀取並非相當一致完成的便不建議使用。
+'''
+with open('Todayfile_forutf8.txt',"w",encoding="UTF-8") as file6:
+    inputstr=file6.writelines([str(x)+"\n" for x in range(99,119)])
+
+'''
+read;readline與readlines
+'''
+'''
+read
+    將檔案的所有內容讀取成一整個字串(一路讀到底，除非指定長度)
+'''
+    #   size=-1
+        #   讀取多少字元組(8bit為一字元組)，-1則為全部讀取
+
+file7=open('Todayfile.txt',"r")
+filestr=file7.read()
+file7.close()
+filestr
+
+file7=open('Todayfile.txt',"rb")
+filestr100=file7.read(100)
+file7.close()
+filestr100
+
+
+'''
+readline
+    一次只讀取一列，遇到換列字串\n則完成讀取，
+    下一次讀取則從下一列開頭開始。
+'''
+    #   size=-1
+        #   讀取多少字元組(8bit為一字元組)，遇到換列字串\n則完成讀取，
+        #   讀取位置自動跳下一列
+        #   若前一列未換列，則下一次會從該位置繼續
+file8=open('Todayfile.txt',"r")
+filestr1=file8.readline()
+filestr2=file8.readline(20)
+filestr3=file8.readline()
+file8.close()
+filestr1
+filestr2
+filestr3
+
+'''
+readlines
+    一次讀取每一列，並使其成為list。
+'''
+    #   size=-1
+        #   讀取多少字元組(8bit為一位元組)，遇到換列字串\n則變成list中新的元素
+        #   若前一列未換列，則下一次會從該位置繼續
+file9=open('Todayfile.txt',"r")
+filestr1=file9.readlines()
+file9.close()
+filestr1
+
+file9=open('Todayfile.txt',"r")
+filestr2=file9.readlines(3)
+filestr3=file9.readlines(20)
+filestr4=file9.readlines()
+file9.close()
+filestr2
+filestr3
+filestr4
+
+
+'''讀取和寫入二進位檔案(二元檔案)(一般來說所有資料都是二元資料，只不過制訂好不同檔案的讀取方式)'''
+
+file9=open('backphase.wav',"rb")
+a=file9.read()
+file9.close()
+len(a)
+L=[]
+R=[]
+def T(x):
+    if x>32768:
+        return(x-32768)
+    else:
+        return(x+32768)
+
+for i in range(0,len(a)-44,4):
+    L.append(T(a[44+i]+a[45+i]*256))
+    R.append(T(a[46+i]+a[47+i]*256))
+    
+import matplotlib.pyplot as plt
+
+plt.plot(L[0:44100])
+plt.plot(L[0:200])
+plt.plot(R[0:200])
+
+
+# ch14_25  '''關於bytes可以參考3-16內容'''
+dst = 'bdata'
+bytedata = bytes(range(0,256))
+with open(dst, 'wb') as file_dst:
+    file_dst.write(bytedata)
+
+
+# ch14_26
+src = 'bdata'
+
+with open(src, 'rb') as file_src:
+    print("目前位移 : ", file_src.tell())
+    file_src.seek(10)
+    print("目前位移 : ", file_src.tell())
+    data = file_src.read()
+    print("目前內容 : ", data[0])
+    file_src.seek(255)
+    print("目前位移 : ", file_src.tell())
+    data = file_src.read()
+    print("目前內容 : ", data[0])
+    
+    
+
+#以上為課本14-1 到14-7 的內容
+#14-8 到 14-10 暫時先不講
+
+'''14-11 是指定編馬格式(通常是在寫入與讀取文字檔案時需要注意的'''
+# ch14_32
+
+fn = 'data_cp950.txt'                    # 設定欲開啟的檔案
+file_Obj =  open(fn, encoding='cp950')  # 預設encoding='cp950'開檔案
+data = file_Obj.read()                  # 讀取檔案到變數data
+file_Obj.close()                        # 關閉檔案物件
+print(data)                             # 輸出變數data相當於輸出檔案
+
+fn = 'data_utf-8.txt'                    # 設定欲開啟的檔案
+file_Obj =  open(fn, encoding='utf-8')  # 預設encoding='utf-8'開檔案
+data = file_Obj.read()                  # 讀取檔案到變數data
+file_Obj.close()                        # 關閉檔案物件
+print(data)                             # 輸出變數data相當於輸出檔案
+
+#windows 系統在寫入utf-8時會有一個宣告開頭，一般程式語言讀取時會將它視為資料本身內容
+#你可以自行判斷刪除，或是如下指定讀取編碼為utf-8-sig
+
+fn = 'data_uft-8.txt'                             # 欲開啟的檔案
+with open(fn, encoding='utf-8-sig') as file_Obj: # utf-8-sig
+    obj_list = file_Obj.readlines()              # 每次讀一列
+
+print(obj_list)                                  # 列印串列
+
+'''14-12 剪貼簿存取'''
+#助教以前在助理時期，辦公室檔案處理最常用的功能(不見得是在python)
+import pyperclip
+
+pyperclip.copy('淡江大學 - 樸實剛毅')     # 將字串拷貝至剪貼簿
+
+string = pyperclip.paste()              # 從剪貼簿拷貝回string
+print(string)                           # 列印
+
+
+#csv 資料
+#ch22
+
+#import csv
+
+#fn = 'out22_6.csv'
+#with open(fn,'w',newline='',encoding="cp950") as csvFile:
+#    csvWriter = csv.writer(csvFile)  
+#    csvWriter.writerow(['姓名', '年齡', '城市'])
+#    csvWriter.writerow(['Hung', '35', 'Taipei'])
+#    csvWriter.writerow(['James', '40', 'Chicago'])
+
+
+#json 資料
+#ch21
+
+'''
+dumps 與 loads
+都只是寫入前與讀取後進行"字串呈現上"格式的轉換工具
+
+'''
+
+# ch21_1.py
+import json
+
+listNumbers = [5, 10, 20, 1]            # 串列資料
+tupleNumbers = (1, 5, 10, 9)            # 元組資料
+jsonData1 = json.dumps(listNumbers)     # 將串列資料轉成json資料
+jsonData2 = json.dumps(tupleNumbers)    # 將元組資料轉成json資料、以上兩種python類別，對於json來說是同一種紀錄方式
+print("串列轉換成json的陣列", jsonData1)
+print("元組轉換成json的陣列", jsonData2)
+print("json陣列在Python的資料類型 ", type(jsonData1)) #是記錄類似檔案的內文，所以用python來看就像是看文件檔一樣，字串的方式存在。
+
+
+# ch21_2.py
+
+listObj = [{'Name':'Peter', 'Age':25, 'Gender':'M'}]    # 串列元素是字典
+jsonData = json.dumps(listObj)                          # 串列轉成json
+print("串列轉換成json的陣列", jsonData)
+print("json陣列在Python的資料類型 ", type(jsonData))
+
+# ch21_3.py #可選擇排序與否
+
+players = {'Stephen Curry':'Golden State Warriors',
+           'Kevin Durant':'Golden State Warriors',
+           'Lebron James':'Cleveland Cavaliers',
+           'James Harden':'Houston Rockets',
+           'Paul Gasol':'San Antonio Spurs',
+          }
+jsonObj1 = json.dumps(players)                  # 未用排序將字典轉成json
+jsonObj2 = json.dumps(players, sort_keys=True)  # 有用排序將字典轉成json
+print("未用排序將字典轉換成json的物件", jsonObj1)
+print("使用排序將字典轉換成json的物件", jsonObj2)
+print("有排序與未排序物件是否相同    ", jsonObj1 == jsonObj2 )
+print("json物件在Python的資料類型 ", type(jsonObj1))
+
+# ch21_4.py #可以添加縮排(由dumps代勞處理)
+
+jsonObj = json.dumps(players, sort_keys=True, indent=4)   
+print(jsonObj)
+
+
+# ch21_5.py
+jsonObj = '{"b":80, "a":25, "c":60}'    # json物件
+dictObj = json.loads(jsonObj)           # 轉成Python物件
+print(dictObj)
+print(type(dictObj))
+
+# ch21_5_1+2.py
+obj = '{"Asia":[{"Japan":"Tokyo"},{"China":"Beijing"}]}'
+json_obj = json.loads(obj)
+print(json_obj)
+print(json_obj["Asia"])
+print(json_obj["Asia"][0])
+print(json_obj["Asia"][1])
+print(json_obj["Asia"][0]["Japan"])
+print(json_obj["Asia"][1]["China"])
+
+
+#json數據檢視工具
+#https://www.bejson.com/jsonviewernew/ 
+#中央氣象局為例，簡要示範
+
+#課本讀檔例子
