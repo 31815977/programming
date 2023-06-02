@@ -1,0 +1,95 @@
+# ch21_1.py
+import json
+
+listNumbers = [5, 10, 20, 1]            # 串列資料
+tupleNumbers = (1, 5, 10, 9)            # 元組資料
+jsonData1 = json.dumps(listNumbers)     # 將串列資料轉成json資料
+jsonData2 = json.dumps(tupleNumbers)    # 將串列資料轉成json資料
+print("串列轉換成json的陣列", jsonData1)
+print("元組轉換成json的陣列", jsonData2)
+print("json陣列在Python的資料類型 ", type(jsonData1))
+
+print(sep="")
+
+# ch21_2.py
+import json
+
+listObj = [{'Name':'Peter', 'Age':25, 'Gender':'M'}]    # 串列元素是字典
+jsonData = json.dumps(listObj)                          # 串列轉成json
+print("串列轉換成json的陣列", jsonData)
+print("json陣列在Python的資料類型 ", type(jsonData))
+
+print(sep="")
+
+# ch21_3.py
+import json
+
+players = {'Stephen Curry':'Golden State Warriors',
+           'Kevin Durant':'Golden State Warriors',
+           'Lebron James':'Cleveland Cavaliers',
+           'James Harden':'Houston Rockets',
+           'Paul Gasol':'San Antonio Spurs',
+          }
+jsonObj1 = json.dumps(players)                  # 未用排序將字典轉成json
+jsonObj2 = json.dumps(players, sort_keys=True)  # 有用排序將字典轉成json
+print("未用排序將字典轉換成json的物件", jsonObj1)
+print("使用排序將字典轉換成json的物件", jsonObj2)
+print("有排序與未排序物件是否相同    ", jsonObj1 == jsonObj2 )
+print("json物件在Python的資料類型 ", type(jsonObj1))
+
+print(sep="")
+
+# ch21_4.py
+import json
+
+players = {'Stephen Curry':'Golden State Warriors',
+           'Kevin Durant':'Golden State Warriors',
+           'Lebron James':'Cleveland Cavaliers',
+           'James Harden':'Houston Rockets',
+           'Paul Gasol':'San Antonio Spurs',
+          }
+jsonObj = json.dumps(players, sort_keys=True, indent=4)   
+print(jsonObj)
+
+print(sep="")
+
+# ch21_5.py
+import json
+
+jsonObj = '{"b":80, "a":25, "c":60}'    # json物件
+dictObj = json.loads(jsonObj)           # 轉成Python物件
+print(dictObj)
+print(type(dictObj))
+
+print(sep="")
+
+# ch21_5_1.py
+import json
+
+obj = '{"Asia":[{"Japan":"Tokyo"},{"China":"Beijing"}]}'
+json_obj = json.loads(obj)
+print(json_obj)
+print(json_obj["Asia"])
+print(json_obj["Asia"][0])
+print(json_obj["Asia"][1])
+print(json_obj["Asia"][0]["Japan"])
+print(json_obj["Asia"][1]["China"])
+
+print(sep="")
+
+# ch21_5_2.py
+import json
+
+obj = '{"Asia":\
+            [{"Japan":"Tokyo"},\
+             {"China":"Beijing"}]\
+       }'
+json_obj = json.loads(obj)
+print(json_obj)
+print(json_obj["Asia"])
+print(json_obj["Asia"][0])
+print(json_obj["Asia"][1])
+print(json_obj["Asia"][0]["Japan"])
+print(json_obj["Asia"][1]["China"])
+
+print(sep="")
