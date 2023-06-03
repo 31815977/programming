@@ -1,3 +1,4 @@
+#21-3-1 使用dumps()將Pyhton資料轉成json格式
 # ch21_1.py
 import json
 
@@ -18,9 +19,17 @@ listObj = [{'Name':'Peter', 'Age':25, 'Gender':'M'}]    # 串列元素是字典
 jsonData = json.dumps(listObj)                          # 串列轉成json
 print("串列轉換成json的陣列", jsonData)
 print("json陣列在Python的資料類型 ", type(jsonData))
+#留意json物件的字串是用"雙引號"
 
 print(sep="")
 
+#21-3-2 dumps()的sort_keys參數
+'''
+字典是無序的資料，
+使用dumps()將Python資料轉成json物件時，
+可以使用sort_keys=True，
+則可以轉成json格式的物件排序
+'''
 # ch21_3.py
 import json
 
@@ -39,7 +48,13 @@ print("json物件在Python的資料類型 ", type(jsonObj1))
 
 print(sep="")
 
+#21-3-3 dumps()的indet參數
+'''
+加上indet設定縮排json物件的鍵-值，
+讓json物件可以更容易顯示
+'''
 # ch21_4.py
+'''將Python的字典轉成json格式物件時，設定縮排4個字元寬度'''
 import json
 
 players = {'Stephen Curry':'Golden State Warriors',
@@ -53,6 +68,18 @@ print(jsonObj)
 
 print(sep="")
 
+#21-3-4 使用loads()將json格式資料轉成Python的資料
+'''轉化對照表
+Json資料          Python資料
+object            dict
+array             list
+string            unicode
+number(int)       int,long
+Number(real)      float
+true              True
+false             False
+null              None
+'''
 # ch21_5.py
 import json
 
@@ -60,10 +87,18 @@ jsonObj = '{"b":80, "a":25, "c":60}'    # json物件
 dictObj = json.loads(jsonObj)           # 轉成Python物件
 print(dictObj)
 print(type(dictObj))
-
+#可以看到json物件轉回Python資料時的資料類型
 print(sep="")
 
+#21-3-5 一個json文件只能放一個json物件? YES
+'''
+以下是無效的
+{"Japan":"Tokyo"}
+{"China":"Bejing"}
+如果要放多個json物件，可以用一個父json物件處理
+'''
 # ch21_5_1.py
+'''此例中Asia為父json物件'''
 import json
 
 obj = '{"Asia":[{"Japan":"Tokyo"},{"China":"Beijing"}]}'
@@ -74,7 +109,8 @@ print(json_obj["Asia"][0])
 print(json_obj["Asia"][1])
 print(json_obj["Asia"][0]["Japan"])
 print(json_obj["Asia"][1]["China"])
-
+print(type(json_obj))
+#缺點:不易閱讀
 print(sep="")
 
 # ch21_5_2.py
@@ -91,5 +127,6 @@ print(json_obj["Asia"][0])
 print(json_obj["Asia"][1])
 print(json_obj["Asia"][0]["Japan"])
 print(json_obj["Asia"][1]["China"])
+print(type(json_obj))
 
 print(sep="")
