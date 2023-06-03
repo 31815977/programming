@@ -1,3 +1,20 @@
+#23-3-1認識 ndarray的屬性
+'''
+ndarray.dtype:陣列元素型態
+ndarray.itemsize:陣列元素資料型態大小(或稱所占空間)，單位:位元組
+ndarray.ndim:陣列的維度
+ndarray.shape:陣列的外形，可由此了解每一維度元素的個數，此資料形態是元組
+ndarray.size:陣列元素個數
+'''
+#23-3-2 使用array()建立一維陣列
+'''
+語法:
+numpy.array(object,dtype=None)
+上述參數意義如下:
+object:陣列資料
+dtype:資料類型，如果省略將使用可以容納資料最省的類型
+建立時在"小括號()"內填上"中括號[]"，然後將陣列數值放在"中括號[]"內，彼此用"逗號(,)"隔開
+'''
 # ch23_1.py
 import numpy as np
 

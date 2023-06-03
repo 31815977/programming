@@ -1,0 +1,4 @@
+'''
+bool_:和Python的bool相容，以一個位元組儲存True或False
+
+'''
