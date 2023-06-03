@@ -15,7 +15,10 @@ object:陣列資料
 dtype:資料類型，如果省略將使用可以容納資料最省的類型
 建立時在"小括號()"內填上"中括號[]"，然後將陣列數值放在"中括號[]"內，彼此用"逗號(,)"隔開
 '''
+#23-3-3 使用array()函數建立多維陣列
+'''在使用array()建立陣列時，如過設定參數ndmin就可以建立多維參數'''
 # ch23_1.py
+#建立二維矩陣
 import numpy as np
 
 row1 = [1, 2, 3]
@@ -36,28 +39,8 @@ print(arr2)
 
 print(sep="")
 
-# ch23_1_1.py
-import numpy as np
-
-row1 = [1, 2, 3]
-arr1 = np.array(row1, ndmin=2)
-print(f"陣列維度 = {arr1.ndim}")
-print(f"陣列外型 = {arr1.shape}")
-print(f"陣列大小 = {arr1.size}")
-print("陣列內容")
-print(arr1)
-print("-"*70)
-row2 = [4, 5, 6]
-arr2 = np.array([row1,row2])
-print(f"陣列維度 = {arr2.ndim}")
-print(f"陣列外型 = {arr2.shape}")
-print(f"陣列大小 = {arr2.size}")
-print("陣列內容")
-print(arr2)
-
-print(sep="")
-
 # ch23_2.py
+#重新設計ch23_1.py
 import numpy as np
 
 x = np.array([[1, 2, 3], [4, 5, 6]])
@@ -70,6 +53,7 @@ print(x)
 print(sep="")
 
 # ch23_3.py
+#引用二維陣列索引的方式
 import numpy as np
 
 x = np.array([[1, 2, 3], [4, 5, 6]])
@@ -84,7 +68,20 @@ print(f"x[1] = {x[1]}")
 
 print(sep="")
 
+#23-3-4 使用zeros()建立內容是0的多維陣列
+'''
+語法:
+np.zeros(shape,dtype=float)
+上述參數意義如下:
+shape:陣列外形
+dtype:預設是浮點資料類型，也可以用此設定資料類型
+'''
 # ch23_4.py
+'''
+建立1x3一維陣列和2x3二維陣列，
+一維陣列元素資料類型是浮點數(float)，
+二維陣列元素資料類型是8位元無號整數(unit8)
+'''
 import numpy as np
 
 x1 = np.zeros(3)
@@ -95,6 +92,14 @@ print(x2)
 
 print(sep="")
 
+#23-3-5 使用ones()建立內容是1的多維陣列
+'''
+語法:
+np.ones(shape,dtype=None)
+上述參數意義如下:
+shape:陣列外形
+dtype:預設是64浮點資料類型(float64)，也可以用此設定資料類型
+'''
 # ch23_5.py
 import numpy as np
 
@@ -106,6 +111,14 @@ print(x2)
 
 print(sep="")
 
+#23-3-6 使用empty()建立未初始化的多維陣列
+'''
+語法:
+np.empty(shape,dtype=float)
+上述參數意義如下:
+shape:陣列外形
+dtype:預設是浮點資料類型(float)，也可以用此設定資料類型
+'''
 # ch23_6.py
 import numpy as np
 
