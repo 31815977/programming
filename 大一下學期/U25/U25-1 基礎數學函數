@@ -1,0 +1,25 @@
+'''
+pi:圓周率
+e:歐拉數
+inf:無窮大
+nan:空值(Not a number)
+'''
+import numpy as np
+print(np.pi)
+print(np.e)
+print(np.inf)
+print(np.nan)
+
+print(sep="")
+
+#25-1-2基礎數學函數
+'''
+absolute(x):傳回絕對值
+square(x):傳回平方值
+sqrt(x):傳回平方根
+sign(x):小於0傳回-1，等於0傳回0，大於0傳回1
+'''
+print(np.absolute([-3,5,-9]))
+print(np.square([1,3]))
+print(np.sqrt([1,4,9,15]))
+print(np.sign([-1,-0.5,0,0.5,1]))

@@ -1,4 +1,17 @@
+#23-8-1 更改陣列維度reshape()
+'''
+語法:
+np.reshape(a,newshape)
+a是要更改的陣列，
+newshape是新陣列的外形
+newshape可以是整數或元組，
+上述經過更改後，
+原陣列外形將不更改
+'''
 # ch23_19.py
+'''
+1x16陣列改為2x8陣列
+'''
 import numpy as np
 
 x = np.arange(16)
@@ -11,6 +24,9 @@ print(f"原陣列 x = {x}")
 print(sep="")
 
 # ch23_20.py
+'''
+1x16陣列改為4xn陣列
+'''
 import numpy as np
 
 x = np.arange(16)
@@ -23,6 +39,9 @@ print(f"原陣列 x = {x}")
 print(sep="")
 
 # ch23_21.py
+'''
+1x16陣列改為mx8陣列
+'''
 import numpy as np
 
 x = np.arange(16)
@@ -34,6 +53,10 @@ print(f"原陣列 x = {x}")
 
 print(sep="")
 
+#23-8-2 多維陣列轉一維陣列ravel()
+'''
+ravel()函數可以將多維陣列轉成一維陣列，回傳的是檢視(view)
+'''
 # ch23_22.py
 import numpy as np
 
@@ -46,7 +69,10 @@ print(y)
 print(f"np.shares_memory(x,y) = {np.shares_memory(x,y)}")
 
 print(sep="")
-
+#23-8-3 多維陣列轉一維陣列flatten()
+'''
+flatten()函數可以將多維陣列轉成一維陣列，回傳的是拷貝(copy)
+'''
 # ch23_22_1.py
 import numpy as np
 
@@ -59,3 +85,18 @@ print(y)
 print(f"np.shares_memory(x,y) = {np.shares_memory(x,y)}")
 
 print(sep="")
+
+#23-8-4 轉置矩陣transpose()
+import numpy as np
+x=np.arange(8).reshape(4,2)
+print(x)
+y=x.transpose()
+print(y)
+
+print(sep="")
+
+import numpy as np
+x=np.arange(8).reshape(4,2)
+print(x)
+y=x.T
+print(y)

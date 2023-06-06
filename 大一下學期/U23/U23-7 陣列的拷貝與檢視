@@ -1,3 +1,4 @@
+#23-7-1 認識檢視view
 # ch23_14.py
 import numpy as np
 
@@ -22,6 +23,7 @@ print(x)            # 輸出 x 內容
 
 print(sep="")
 
+#23-7-2 是否共用記憶體
 # ch23_16.py
 import numpy as np
 

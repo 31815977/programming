@@ -1,3 +1,4 @@
+#23-6-1 認識axis的定義
 # ch23_8.py
 import numpy as np
 
@@ -21,6 +22,7 @@ print(x5)
 
 print(sep="")
 
+#23-6-2 二維陣列的索引
 # ch23_10.py
 import numpy as np
 

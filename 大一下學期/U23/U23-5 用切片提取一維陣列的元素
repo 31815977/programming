@@ -1,3 +1,4 @@
+#23-5-1 用切片提取一維陣列的元素
 # ch23_7.py
 import numpy as np
 

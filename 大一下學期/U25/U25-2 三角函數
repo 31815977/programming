@@ -1,0 +1,21 @@
+'''
+sin(x)、cos(x)、tan(x):正弦/餘弦/正切
+arcsin(x)、arccos(x)、arctan(x):反正弦/反餘弦/反正切
+sinh(x)、cosh(x)、tanh(x):雙曲線正弦/雙曲線餘弦/雙曲線正切
+arcsinh(x)、arccosh(x)、arctanh(x):雙曲線反正弦/雙曲線反餘弦/雙曲線反正切
+下列是計算三角函數參數需使用的函數
+degrees(x):將徑度(radians)轉成角度數
+'''
+#將陣列徑度轉角度數
+import numpy as np
+rad=np.arange(12)*np.pi/6
+x=np.degrees(rad)
+print(x)
+
+print(sep="")
+
+#將陣列角度數轉徑度
+import numpy as np
+deg=np.arange(12)*30
+x=np.radians(deg)
+print(x)

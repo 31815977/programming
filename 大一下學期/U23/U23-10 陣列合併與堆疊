@@ -1,3 +1,9 @@
+#23-10-1 陣列垂直合併vstack()
+'''
+語法:
+x=np.vstack(tup)
+上述參數是tup元組，元組內容是要垂直合併的兩個陣列
+'''
 # ch23_23.py
 import numpy as np
 
@@ -10,6 +16,12 @@ print(f"合併結果 \n{x}")
 
 print(sep="")
 
+#23-10-2 陣列水平合併hstack()
+'''
+語法:
+x=np.hstack(tup)
+上述參數是tup元組，元組內容是要水平合併的兩個陣列
+'''
 # ch23_24.py
 import numpy as np
 
