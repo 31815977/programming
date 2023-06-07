@@ -1,0 +1,7 @@
+'''
+max(arr,axis=i):傳回i軸陣列最大元素
+maximum(arr1,arr2):傳回陣列中相同位置較大的元素值
+min(arr,axis=i):傳回i軸陣列最小元素
+minimum(arr1,arr2):傳回陣列中相同位置較小的元素
+all()
+'''
