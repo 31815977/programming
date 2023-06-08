@@ -1,0 +1,26 @@
+import numpy as np
+x=np.array([1,2,3])
+y=5
+z=x+y
+print(z)
+r=[5]
+s=x+r
+print(s)
+
+print(sep="")
+
+import numpy as np
+x=np.array([1,2,3])
+y=np.array([[1,2,3],[4,5,6]])
+z=x+y
+print(z)
+
+print(sep="")
+
+import numpy as np
+x=np.array([1,2,3]).reshape(3,1)
+print(x)
+y=np.ones(5)
+print(y)
+z=x+y
+print(z)
