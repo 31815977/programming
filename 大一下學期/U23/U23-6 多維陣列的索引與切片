@@ -1,4 +1,5 @@
 #23-6-1 認識axis的定義
+#axis=0:垂直線 axis=1:水平線
 # ch23_8.py
 import numpy as np
 

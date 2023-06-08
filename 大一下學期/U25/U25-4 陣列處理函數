@@ -1,20 +1,6 @@
-'''
-max(arr,axis=i):傳回i軸陣列最大元素
-maximum(arr1,arr2):傳回陣列中相同位置較大的元素值
-min(arr,axis=i):傳回i軸陣列最小元素
-minimum(arr1,arr2):傳回陣列中相同位置較小的元素
-all(arr,axis=i):回應i軸陣列是否全部為True，預設axis=0
-any(arr,axis=i):回應i軸陣列是否有任一個元素為True，預設axis=0
-unique(arr,axis=i):刪除i軸陣列重複的列或行(或頁)
-unravel_index(i,(m,n,...)):將一維索引i轉為(m,n,...)索引
-ravel_multi_index(multi_index,(m,n)):將維度(m,n,...)的索引轉為一維的索引
-where(condition):將陣列作關係運算式，然後導出陣列
-where(condition,a,b):如果條件值成立，則位置是a，否則是b
-sum(a,axis=i):傳回指定軸(axis)的陣列a元素的總和
-prod(arr,axis=i):傳回指定軸(axis)的陣列元素的乘績
-diff(arr,n,axis=i):傳回指定軸元素差(後一個元素值減去前一個元素值)，n是代表執行幾次
-'''
+#axis=0:垂直線 axis=1:水平線
 import numpy as np
+#max(arr,axis=i):傳回i軸陣列最大元素
 print(np.max([1,2,3]))
 
 print(sep="")
@@ -23,10 +9,12 @@ print(np.max(np.arange(100).reshape(10,10)))
 
 print(sep="")
 
+#maximum(arr1,arr2):傳回陣列中相同位置較大的元素值
 print(np.maximum([1,5,10],[3,4,9]))
 
 print(sep="")
 
+#min(arr,axis=i):傳回i軸陣列最小元素
 print(np.min([1,2,3]))
 
 print(sep="")
@@ -35,10 +23,12 @@ print(np.min(np.arange(100).reshape(10,10)))
 
 print(sep="")
 
+#minimum(arr1,arr2):傳回陣列中相同位置較小的元素
 print(np.minimum([1,5,10],[3,4,9]))
 
 print(sep="")
 
+#all(arr,axis=i):回應i軸陣列是否全部為True，預設axis=0
 print(np.all(np.array([1,2,3])))
 
 print(sep="")
@@ -47,6 +37,7 @@ print(np.all(np.array([1,0,3])))
 
 print(sep="")
 
+#any(arr,axis=i):回應i軸陣列是否有任一個元素為True，預設axis=0
 print(np.any(np.array([1,0,3])))
 
 print(sep="")
@@ -55,6 +46,7 @@ print(np.any(np.array([0,0,0])))
 
 print(sep="")
 
+#unique(arr,axis=i):刪除i軸陣列重複的列或行(或頁)
 x=np.array([[1,2,3],
       [7,8,9],
       [7,8,9]])
@@ -63,73 +55,93 @@ print(y)
 
 print(sep="")
 
+#unravel_index(i,(m,n,...)):將一維索引i轉為(m,n,...)索引 unravel:拆散 index:指數
+print("unravel_index:拆散指數")
 x=np.array([[1,12,3],
       [4,15,6],
       [7,18,9]])
 y=np.unravel_index(4,x.shape)
+#上述將二微陣列拆平，索引4的元素是15，當轉成二維陣列後此索引是(1,1)
 print(y)
 
 print(sep="")
 
+#ravel_multi_index(multi_index,(m,n)):將維度(m,n,...)的索引轉為一維的索引
 index=np.ravel_multi_index([[1,1,0],
               [1,0,2]],(3,4))
 print(index)
-
+'''
+上述函數的觀念是在(3,4)的二維陣列當中，
+從[[1,1,0],[1,0,2]]取(1,1)、(1,0)、(0,2)索引元組，
+然後得到拆平(3,4)之索引值，所以依據對應，最後得到[5,4,2]
+'''
 print(sep="")
 
+#where(condition):將陣列作關係運算式，然後導出陣列
 x=np.array([1,2,3,4,5])
 y=np.where(x>3)
 print(y)
 
 print(sep="")
 
+#where(condition,a,b):如果條件值成立，則位置是a，否則是b
 x=np.array([1,5,9])
 y=np.where(x>5,10,100)
 print(y)
 
 print(sep="")
 
-x=np.sum([])
+#sum(a,axis=i):傳回指定軸(axis)的陣列a元素的總和
+x=np.sum([])#如果是空陣列，結果是0.0
 print(x)
 
 print(sep="")
 
-x=np.sum([1,2,3])
+x=np.sum([1,2,3])#一維陣列是元素的加總
 print(x)
 
 print(sep="")
 
-x=np.sum([1.2,1.5,3.1],dtype=np.int32)
+x=np.sum([1.2,1.5,3.1],dtype=np.int32)#元素是浮點數，但是設定資料是int32
 print(x)
 
 print(sep="")
 
-x=np.prod([])
+print(np.sum([[1,2],[3,4]]))#使用不同軸，執行二維陣列元素的加總
+print(np.sum([[1,2],[3,4]],axis=0))
+print(np.sum([[1,2],[3,4]],axis=1))
+
+print(sep="")
+
+#prod(arr,axis=i):傳回指定軸(axis)的陣列元素的乘績
+x=np.prod([])#如果是空陣列，結果是1.0
 print(x)
 
 print(sep="")
 
-x=np.prod([1,2,3])
+x=np.prod([1,2,3])#一維陣列是元素的乘積
 print(x)
 
 print(sep="")
 
-x=np.prod([[1,2],[3,4]])
+x=np.prod([[1,2],[3,4]])#二維陣列也是傳回所有元素的乘積
 print(x)
 
 print(sep="")
 
-x=np.prod([[1,2],[3,4]],axis=1)
+x=np.prod([[1,2],[3,4]],axis=1)#傳回指定軸的元素乘積
 print(x)
 
 print(sep="")
 
+#diff(arr,n,axis=i):傳回指定軸元素差(後一個元素值減去前一個元素值)，n是代表執行幾次
+#一維陣列執行1次與執行2次的結果
 x=np.array([1,4,7,0,5])
 print(np.diff(x))
-print(np.diff(x,axis=0))
+print(np.diff(x,n=2))
 
 print(sep="")
-
+#使用不同軸，執行二維陣列元素差的計算
 x=np.array([[1,4,6,10],[0,2,5,9]])
 print(np.diff(x))
 print(np.diff(x,axis=0))
